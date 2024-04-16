@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+
+  .container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .container form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container form input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+
+  .container form button {
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .container form button:hover {
+    background-color: #0056b3;
+  }
+
+  .container form .toggle-link {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .container form .toggle-link a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  .container form .toggle-link a:hover {
+    text-decoration: underline;
+  }
+
+  #login-message {
+    color: red; /* Đặt màu chữ là màu đỏ */
+    font-weight: bold; /* Đặt đậm cho văn bản */
+    font-size: 14px; /* Đặt kích thước font là 14px */
+    margin-top: 10px; /* Khoảng cách từ trên xuống */
+  }
+
+  #login-message-1 {
+    color: red; /* Đặt màu chữ là màu đỏ */
+    font-weight: bold; /* Đặt đậm cho văn bản */
+    font-size: 14px; /* Đặt kích thước font là 14px */
+    margin-top: 10px; /* Khoảng cách từ trên xuống */
+  }
