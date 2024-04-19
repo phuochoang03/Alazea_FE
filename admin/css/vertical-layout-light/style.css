@@ -123,6 +123,25 @@ a.btn.btn-primary.btn-lg.text-white.mb-0.me-0 {
   /* background-color: #29a329; */
 }
 
+.auth .auth-form-light {
+  background: #ffffff;
+  margin-bottom: 65px;
+}
+
+/* Admin Logo */
+.auth .brand-logo {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Admin Button Sign in */
+a.btn.btn-block.btn-success.btn-lg.font-weight-medium.auth-form-btn {
+  margin-left: 120px;
+  /* margin-right: 95px; */
+}
+
 a.btn.btn-success.btn-lg.text-white.mb-0.me-0 {
   font-size: 14px;
   line-height: 18px;
