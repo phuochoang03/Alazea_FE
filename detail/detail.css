@@ -1,0 +1,218 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(44, 41, 41, 0.7);
+    padding: 10px 20px;
+    font-size: 12px;
+}
+
+header p {
+    margin: 0;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    /*loại bỏ gach chan*/
+    margin-left: 20px;
+    /*cách trái*/
+}
+
+header a:hover {
+    color: yellow;
+}
+
+header .search-bar {
+    display: flex;
+    align-items: center;
+}
+
+header input[type="text"] {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+header .search-btn {
+    padding: 6px 10px;
+    background-color: #ffcc00;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+    align-items: center;
+    background-color: rgba(74, 62, 62, 0.7);
+    padding: 10px 20px;
+    justify-content: space-between;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+nav img {
+    height: 40px;
+    margin-right: 20px;
+}
+
+nav span {
+    color: rgb(3, 194, 54);
+}
+
+nav .logo {
+    font-size: 24px;
+    padding: 10px;
+    pointer-events: none;
+    /* huỷ bỏ sự kiện a */
+}
+
+nav .title1 a:hover {
+    color: rgb(19, 250, 73);
+}
+
+nav .title1 select {
+    background-color: transparent;
+    font-weight: bold;
+    color: white;
+    border: 0px;
+    font-size: 16px;
+}
+
+nav .title1 option {
+    color: white;
+    font-weight: bold;
+    background-color: gray;
+}
+
+nav .search-bar .search-btn:hover {
+    color: rgb(19, 250, 73);
+}
+
+
+nav .title1 select:hover {
+    color: rgb(19, 250, 73);
+}
+
+/*them vào thanh cố định từ trang 2*/
+.navbar-fixed {
+    position: fixed;
+    background-color: rgb(18, 11, 11);
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.background-content {
+    background-color: grey;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background-content p {
+    text-transform: uppercase;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.product_container {
+    width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.product_image {
+    width: 600px;
+}
+
+.product_info {
+    flex: 1;
+}
+
+.product_info .product_name {
+    color: black;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.product_info .product_price {
+    display: block;
+    color: green;
+    margin: 25px 0;
+    font-size: 20px;
+}
+
+.product_info .desc {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.action_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.action_container .add_cart {
+    background-color: green;
+    color: white;
+    padding: 10px 18px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+.quantity {
+    list-style-type: none;
+    display: flex;
+    background-color: rgba(175, 175, 175, 0.46);
+    align-items: center;
+    max-width: fit-content;
+}
+
+.quantity_action {
+    padding: 12px 22px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.quantity_action:hover {
+    background-color: rgba(175, 175, 175, 0.7);
+    cursor: pointer;
+}
+
+.quantity_value {
+    font-size: 18px;
+    padding: 0 12px;
+}
+
+.product_category {
+    margin-top: 50px;
+    padding-top: 50px;
+    border-top: 1px solid grey;
+}
