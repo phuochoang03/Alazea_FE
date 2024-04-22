@@ -21,7 +21,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: rgba(44, 41, 41, 0.7);
-  padding: 10px 20px;
+  padding: 10px 50px;
   font-size: 12px;
 }
 
@@ -29,10 +29,27 @@ header p {
   margin: 0;
 }
 
+header .spacer  {
+  height: 100%;
+  width: 1px;
+  background: #dadada;
+}
+
+header .user_actions #cart_link {
+  border-left: 1px solid #dadada;
+  margin-left: 6px;
+  padding-left: 6px;
+}
+
+header .contact_info  {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 header a {
   color: #fff;
   text-decoration: none; /*loại bỏ gach chan*/
-  margin-left: 20px; /*cách trái*/
 }
 
 header a:hover{
@@ -129,6 +146,9 @@ nav .title1 select:hover {
   z-index: 1000;
 }
 
+body {
+  overflow-x: hidden;
+}
 
 /* Main content styles */
 
@@ -158,8 +178,6 @@ nav .title1 select:hover {
   background-color: rgb(46, 247, 43);
 }
 
-
-
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -174,12 +192,10 @@ nav .title1 select:hover {
 /* Danh mục */
 .danh-muc {
   background: white;
-  width: 100vw; /* 100% chiều rộng của cửa sổ */
-  height: 100vh; /* 100% chiều cao của cửa sổ */
   padding: 58px;
+  padding-top: 100px;
   color: black;
   text-align: center;
-  margin-top: 70px;
   position: relative; /* Đặt vị trí tương đối */
 }
 
@@ -202,13 +218,9 @@ nav .title1 select:hover {
   padding: 10px;
 }
 
-
-
 /* Product New */
 .product-new {
   background: white;
-  width: 100vw; /* 100% chiều rộng của cửa sổ */
-  height: 100vh; /* 100% chiều cao của cửa sổ */
   color: black;
   text-align: center;
   padding: 50px;
@@ -244,23 +256,18 @@ nav .title1 select:hover {
   font-weight: bold;
 }
 
-
 /* đánh giá  */
 .danh-gia {
   background: white;
-  width: 100vw; /* 100% chiều rộng của cửa sổ */
-  height: 100vh; /* 100% chiều cao của cửa sổ */
   color: black;
-
-  padding: 50px;
-  position: relative; /* Đặt vị trí tương đối */
+  padding-top: 100px;
+  padding-bottom: 20px;
 }
 
 .car {
   width: 100%;
   max-width: 250px; /* Thiết lập chiều rộng tối đa của hình ảnh */
   margin: 0 auto; /* Canh giữa hình ảnh trong phần tử cha */
-  overflow: hidden; /* Ẩn các nội dung vượt quá khung chứa */
 }
 
 .car img {
@@ -307,3 +314,33 @@ nav .title1 select:hover {
   padding-right: 10px;
   color: white;
 }
+
+
+
+.showCmtWeb{
+  padding-top: 60px;
+  position: relative;
+  height: 130px;
+  background: url(./../picture/banner.jpg);
+  background-size: cover;
+  background-position: right;
+}
+
+.showCmtWeb a{
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.showCmtWeb span{
+  color: rgb(3, 194, 54);
+}
+
+.showCmtWeb .logo{
+  font-size: 24px;
+  padding: 10px;
+  pointer-events: none;
+}
+

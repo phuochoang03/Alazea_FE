@@ -15,31 +15,22 @@
 
 <body onload="loadproduct()">
   <header>
-    <div>
-      <a href="#">Email: info@discoveralazea@gmail.com</a> 
+    <div class="contact_info">
+      <a href="#">Email: info@discoveralazea@gmail.com</a>
       <a href="#">Liên hệ với: +84 123 122 122</a>
     </div>
-    <div>
+    <div class="user_actions">
       <a href="/logn_in/login.html"><i class="fas fa-user"></i> Đăng nhập</a>
-      <a href="#"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+      <!-- <a href="/"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a> -->
     </div>
   </header>
   <nav id="navbar">
     <div class="title1">
-      <a href="" class="logo">ALA<span>ZEA</span></a>
-      <a href="#">Trang Chủ</a>
-      <select name="cactrang" id="cactrang">
-        <option>Các Trang</option>
-        <option>Trang 2</option>
-        <option>Trang 3</option>
-      </select>
+      <a href="/" class="logo">ALA<span>ZEA</span></a>
+      <!-- <img src="./picture/logo.png" alt="Logo" /> -->
+      <a href="/">Trang Chủ</a>
       <a href="#">Cửa Hàng</a>
-      <a href="#">Tin Tức</a>
       <a href="#">Liên Hệ</a>
-    </div>
-    <div class="search-bar">
-      <input type="text" placeholder="Tìm kiếm..." />
-      <a href="#" class="search-btn">Tìm kiếm</a>
     </div>
   </nav>
 
@@ -49,7 +40,7 @@
     </div>
   </div>
 
-  <div class="address">
+  <!-- <div class="address">
     <a href="#" class="item_address">
       <span class="icon_address">
         <i class="fas fa-home"></i>
@@ -76,9 +67,10 @@
         Giỏ hàng
       </span>
     </a>
-  </div>
+  </div> -->
+  
   <div class="btnDelete">
-    <a class="btn btn-primary btn-sm" style="background: red; border: none;" href="#" role="button">Xóa tất cả</a>
+    <a class="btn btn-primary btn-sm" style="background: red; border: none; margin-bottom: 10px;" href="#" role="button">Xóa tất cả</a>
   </div>
 
   <div class="listItemCart">
@@ -98,21 +90,10 @@
   </div>
 
   <div class="payCart">
-    <div class="couponPayCart">
-      <h5 style="font-weight: bold;">Giảm giá coupon </h5>
-      <span>
-        Phiếu giảm giá có thể được áp dụng trong giỏ hàng trước khi thanh toán. Thêm một mặt hàng đủ điều kiện từ gian hàng của người bán đã tạo mã phiếu giảm giá vào giỏ hàng của bạn. Nhấp vào nút "Áp dụng mã màu xanh lá cây để thêm phiếu giảm giá vào đơn hàng của bạn. Tổng đơn đặt hàng sẽ cập nhật để chỉ ra khoản tiết kiệm cụ thể cho mã phiếu giảm giá đã nhập.
-      </span>
-      <div class="addCoupon">
-        <div class="form-group" style="display: flex;margin-top: 30px;">
-          <input style="width: 300px; font-weight: bold; margin-right: 10px; " type="text"
-            class="form-control" name="" id="" aria-describedby="helpId" placeholder="Nhập mã phiếu giảm giá">
-            <button style="background-color: grey; border-color: grey;" type="submit" class="btn btn-primary">Áp dụng</button>
-        </div>
-      </div>
-    </div>
     <div class="PaymentProcedures">
+      <a href="../purchased_products/index.html" style="background-color: inherit; color: inherit;">
       <button type="submit" class="btn btn-primary">Thủ tục thanh toán</button>
+    </a>
     </div>
   </div>
 

@@ -76,12 +76,12 @@ window.addEventListener('scroll', function() {
 function ShowProducts() {
   for (let i = 0; i <= Product.length - 1; i++) {
       var demo = '<div class="col-3">';
+      demo += '<a href="/detail/detail.html">';
       demo += '<div class="card" style="width: 18rem; border: none">';
       demo += '<img src="' + Product[i].image + '" class="card-img-top" style="height: 170px; width: 270px; border: none;">'; 
-      // Đặt kích thước ảnh là 100% chiều rộng và 400px chiều cao
       demo += '<div class="card-body">';
       demo += '</div>'; 
-      demo += '</div>';
+      demo += '</a>';
       demo += '</div>';
       console.log(demo);
       document.getElementById("picture").innerHTML += demo;

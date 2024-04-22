@@ -4,12 +4,21 @@
     list-style-type: none;
 }
 
+ul {
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Header styles */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: rgba(44, 41, 41, 0.7);
-    padding: 10px 20px;
+    padding: 10px 50px;
     font-size: 12px;
 }
 
@@ -17,12 +26,28 @@ header p {
     margin: 0;
 }
 
+header .spacer {
+    height: 100%;
+    width: 1px;
+    background: #dadada;
+}
+
+header .user_actions #cart_link {
+    border-left: 1px solid #dadada;
+    margin-left: 6px;
+    padding-left: 6px;
+}
+
+header .contact_info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
 header a {
     color: #fff;
     text-decoration: none;
     /*loại bỏ gach chan*/
-    margin-left: 20px;
-    /*cách trái*/
 }
 
 header a:hover {
@@ -142,11 +167,12 @@ nav .title1 select:hover {
     margin-top: 50px;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px;
+    gap: 50px;
 }
 
 .product_image {
     width: 600px;
+    border-radius: 12px;
 }
 
 .product_info {
@@ -215,4 +241,34 @@ nav .title1 select:hover {
     margin-top: 50px;
     padding-top: 50px;
     border-top: 1px solid grey;
+}
+
+
+.showCmtWeb {
+    margin-top: 20px;
+    padding-top: 20px;
+    height: 130px;
+    background: url(./../picture/banner.jpg);
+    background-size: cover;
+    background-position: right;
+    display: flex;
+    align-items: center;
+}
+
+.showCmtWeb a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.showCmtWeb span {
+    color: rgb(3, 194, 54);
+}
+
+.showCmtWeb .logo {
+    font-size: 24px;
+    padding: 10px;
+    pointer-events: none;
 }
