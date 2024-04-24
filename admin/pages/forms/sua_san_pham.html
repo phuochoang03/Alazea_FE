@@ -42,7 +42,7 @@
           </a>
         </div>
       </div>
-      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+      <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
             <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">Admin</span></h1>
@@ -72,7 +72,8 @@
             </div>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-bs-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
@@ -87,7 +88,7 @@
               <span class="menu-title">Quản lý hóa đơn</span>
             </a>
           </li>
-          
+
           <li class="nav-item nav-category">Quản lý</li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
@@ -97,19 +98,22 @@
             </a>
             <div class="collapse" id="icons">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../../pages/forms/basic_danhmuc.html">Danh mục sản phẩm</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/forms/basic_danhmuc.html">Danh mục sản
+                    phẩm</a></li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
+              aria-controls="form-elements">
               <i class="menu-icon mdi mdi-card-text-outline"></i>
               <span class="menu-title">Quản lý sản phẩm</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="../../pages/forms/basic_sanpham.html">Danh sách sản phẩm</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../pages/forms/basic_sanpham.html">Danh sách sản
+                    phẩm</a></li>
               </ul>
             </div>
           </li>
@@ -122,65 +126,80 @@
             </a>
             <div class="collapse" id="tables">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../../pages/forms/basic_user.html">Danh sách người dùng</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/forms/basic_user.html">Danh sách người
+                    dùng</a></li>
               </ul>
             </div>
           </li>
         </ul>
       </nav>
       <!-- partial -->
-      <div class="main-panel">        
+      <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Sửa sản phẩm</h4>
-                  <form class="forms-sample">
+                  <h4 class="card-title">Thêm sản phẩm</h4>
+                  <form class="forms-sample" name="updateProductForm">
                     <div class="form-group">
-                      <label for="exampleInputName1">Tên sản phẩm</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                      <label for="productName">Tên sản phẩm</label>
+                      <input type="text" class="form-control" id="productName" placeholder="Name">
                     </div>
 
                     <div class="form-group">
                       <label>Ảnh</label>
-                      <input type="file" name="img[]" class="file-upload-default">
-                      <div class="input-group col-xs-12">
+                      <input type="file" name="img" class="file-upload-default" onchange="handleChangeProductImage()">
+                      <div class="input-group col-xs-12" style="display: flex; align-items: center">
                         <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                         <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-outline-success btn-fw" type="button">Upload</button>
+                          <button class="file-upload-browse btn btn-outline-success btn-fw"
+                            type="button">Upload</button>
                         </span>
+                      </div>
+                      <img src="" alt="" id="preview_img"
+                        style="width: 100%; height: 20rem; margin-top: 1rem; object-fit: cover; object-position: center;" />
+                    </div>
+
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label for="category">Danh mục</label>
+                        <select class="form-control" id="category">
+                          <option value="">--- Chọn danh mục sản phẩm ---</option>
+                        </select>
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label for="exampleInputEmail3">Danh mục</label>
-                      <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Danh mục">
-                    </div>
-                    
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">Tên người tạo</label>
-                      <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Tên người tạo">
+                      <label for="desc">Mô tả</label>
+                      <textarea type="text" class="form-control" id="desc" placeholder="Mô tả sản phẩm"></textarea>
                     </div>
 
                     <div class="form-group">
-                      <label for="exampleInputPassword4">Thời gian tạo</label>
-                      <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Thời gian tạo">
+                      <label for="price">Giá</label>
+                      <input type="number" step="1000" min="1" class="form-control" id="price" name="price"
+                        placeholder="4000000">
                     </div>
 
-                    <button type="submit" class="btn btn-success me-2">Submit</button>
-                    <a href="../../pages/forms/basic_danhmuc.html" class="btn btn-light" role="button" aria-pressed="true">Cancel</a>
+                    <div class="form-group">
+                      <label for="percentDiscount">Phần trăm giảm (%)</label>
+                      <input type="number" step="1" min="0" class="form-control" id="percentDiscount"
+                        name="percentDiscount" placeholder="20">
+                    </div>
+
+                    <button type="button" class="btn btn-success me-2" onclick="handleUpdateProduct()">Submit</button>
+                    <a href="../../pages/forms/basic_sanpham.html" class="btn btn-light" role="button"
+                      aria-pressed="true">Cancel</a>
 
                     <!-- <button class="btn btn-light">Cancel</button> -->
                   </form>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
         <!-- content-wrapper ends -->
-
-        <!-- partial -->
       </div>
       <!-- main-panel ends -->
     </div>
@@ -204,6 +223,7 @@
   <!-- Custom js for this page-->
   <script src="../../js/file-upload.js"></script>
   <script src="../../vendors/select2/select2.min.js"></script>
+  <script type="module" src="../../js/product/editProduct.js"></script>
 
   <!-- End custom js for this page-->
 </body>

@@ -1,51 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng nhập và Đăng ký</title>
     <link rel="stylesheet" href="login.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container" id="login-container">
-      <h1>Đăng nhập</h1>
-      <form action="" id="login-form">
-        <input
-          type="text"
-          placeholder="Email"
-          id="checkemail"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Mật khẩu"
-          id="checkmatkhau"
-          required
-        />
-        <button type="button" onclick="checklogin()">Đăng nhập</button>
-        <span id="login-message" style="color: red"></span>
-        <div class="toggle-link">
-          <a href="#" onclick="toggleForms()"
-            >Chưa có tài khoản? Đăng kí ngay!</a
-          >
-        </div>
-      </form>
+        <h1>Đăng nhập</h1>
+        <div id="login-form">
+            <input type="text" placeholder="Số điện thoại" id="checkphone" required />
+            <input type="password" placeholder="Mật khẩu" id="checkmatkhau" required />
+            <button type="button" onclick="checklogin()">Đăng nhập</button>
+            <span id="login-message" style="color: red"></span>
+            <div class="toggle-link">
+                <a href="#" onclick="toggleForms()">Chưa có tài khoản? Đăng kí ngay!</a>
+            </div>
+        </d>
     </div>
 
-    <div class="container" id="register-container" style="display: none">
-      <h1>Đăng ký tài khoản</h1>
-      <form action="">
-        <input type="text" placeholder="Họ và tên" id="nameuse" required />
-        <input type="email" placeholder="Email" id="email" required />
-        <input type="password" placeholder="Mật khẩu mới" id="matkhau" required />
-        <input type="password" placeholder="Xác nhận lại mật khẩu" id="kiemtramatkhau" required />
-        <button type="button" onclick="savelogin()">Đăng ký</button>
-        <span id="login-message-1" style="color: red"></span>
-        <div class="toggle-link">
-          <a href="login.html">Đã có tài khoản? Đăng nhập ngay!</a>
-        </div>
-      </form>
-    </div>
-    <script src="login.js"></script>
-  </body>
+    <!-- <div class="container" id="register-container" style="display: none">
+    <h1>Đăng ký tài khoản</h1>
+    <form action="">
+      <input type="text" placeholder="Họ và tên" id="nameuse" required />
+      <input type="text" placeholder="Số điện thoại" id="phone" required />
+      <input type="password" placeholder="Mật khẩu mới" id="matkhau" required />
+      <input type="password" placeholder="Xác nhận lại mật khẩu" id="kiemtramatkhau" required />
+      <button type="button" onclick="savelogin()">Đăng ký</button>
+      <span id="login-message-1" style="color: red"></span>
+      <div class="toggle-link">
+        <a href="login.html">Đã có tài khoản? Đăng nhập ngay!</a>
+      </div>
+    </form>
+  </div> -->
+    <script type="module" src="./login.js"></script>
+</body>
+
 </html>

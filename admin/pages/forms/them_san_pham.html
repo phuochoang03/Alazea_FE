@@ -136,38 +136,50 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Thêm sản phẩm</h4>
-                  <form class="forms-sample">
+                  <form class="forms-sample" name="createProductForm" >
                     <div class="form-group">
-                      <label for="exampleInputName1">Tên sản phẩm</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                      <label for="productName">Tên sản phẩm</label>
+                      <input type="text" class="form-control" id="productName" placeholder="Name">
                     </div>
 
                     <div class="form-group">
                       <label>Ảnh</label>
-                      <input type="file" name="img[]" class="file-upload-default">
-                      <div class="input-group col-xs-12">
+                      <input type="file" name="img" class="file-upload-default" onchange="handleChangeProductImage()">
+                      <div class="input-group col-xs-12" style="display: flex; align-items: center">
                         <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-outline-success btn-fw" type="button">Upload</button>
                         </span>
                       </div>
+                      <img src="" alt="" id="preview_img" style="width: 100%; height: 20rem; margin-top: 1rem; display: none; object-fit: cover; object-position: center;" />
                     </div>
 
                     <div class="form-group">
-                      <label for="exampleInputEmail3">Danh mục</label>
-                      <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Danh mục">
+                      <div class="form-group">
+                        <label for="category">Danh mục</label>
+                        <select class="form-control" id="category">
+                          <option value="">--- Chọn danh mục sản phẩm ---</option>
+                        </select>
+                      </div>
+                      <!-- <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Danh mục"> -->
                     </div>
                     
                     <div class="form-group">
-                      <label for="exampleInputPassword4">Tên người tạo</label>
-                      <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Tên người tạo">
+                      <label for="desc">Mô tả</label>
+                      <textarea type="text" class="form-control" id="desc" placeholder="Mô tả sản phẩm"></textarea>
                     </div>
 
                     <div class="form-group">
-                      <label for="exampleInputPassword4">Thời gian tạo</label>
-                      <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Thời gian tạo">
+                      <label for="price">Giá</label>
+                      <input type="number" step="1000" min="1" class="form-control" id="price" name="price" placeholder="4000000">
                     </div>
-                    <button type="submit" class="btn btn-success me-2">Submit</button>
+
+                    <div class="form-group">
+                      <label for="percentDiscount">Phần trăm giảm (%)</label>
+                      <input type="number" step="1" min="0" class="form-control" id="percentDiscount" name="percentDiscount" placeholder="20">
+                    </div>
+
+                    <button type="button" class="btn btn-success me-2" onclick="handleCreateProduct()">Submit</button>
                     <a href="../../pages/forms/basic_sanpham.html" class="btn btn-light" role="button" aria-pressed="true">Cancel</a>
 
                     <!-- <button class="btn btn-light">Cancel</button> -->
@@ -202,6 +214,7 @@
   <!-- Custom js for this page-->
   <script src="../../js/file-upload.js"></script>
   <script src="../../js/typeahead.js"></script>
+  <script type="module" src="../../js/product/createProduct.js"></script>
   <!-- End custom js for this page-->
 </body>
 

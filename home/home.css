@@ -204,14 +204,22 @@ body {
 }
 
 .danh-muc .column {
-  padding-top: 10px ;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.danh-muc .column a{
+.danh-muc .column .cate_item {
   color: #5f1919;
   text-decoration: none; /*loại bỏ gach chan*/
   margin-left: 30px; /*cách trái*/
   font-weight: bold;
+  cursor: pointer;
+}
+
+.danh-muc .column .cate_item:hover {
+  opacity: .8;
 }
 
 .danh-muc .container .row {
@@ -314,7 +322,6 @@ body {
   padding-right: 10px;
   color: white;
 }
-
 
 
 .showCmtWeb{
