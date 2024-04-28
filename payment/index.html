@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- them icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="contact_info">
+            <a href="#">Email: info@discoveralazea@gmail.com</a>
+            <a href="#">Liên hệ với: +84 123 122 122</a>
+        </div>
+        <div class="user_actions">
+            <a href="/logn_in/login.html"><i class="fas fa-user"></i> Đăng nhập</a>
+            <a href="./Cart/cart.html" id="cart_link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+        </div>
+    </header>
+    <nav id="navbar">
+        <div class="title1">
+            <a href="/" class="logo">ALA<span>ZEA</span></a>
+            <!-- <img src="./picture/logo.png" alt="Logo" /> -->
+            <a href="/">Trang Chủ</a>
+            <a href="./listProduct/index.html">Cửa Hàng</a>
+            <a href="#">Liên Hệ</a>
+        </div>
+    </nav>
+
+    <div class="payment_container">
+        <div class="payment_header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="m7.825 13l4.9 4.9q.3.3.288.7t-.313.7q-.3.275-.7.288t-.7-.288l-6.6-6.6q-.15-.15-.213-.325T4.426 12t.063-.375t.212-.325l6.6-6.6q.275-.275.688-.275t.712.275q.3.3.3.713t-.3.712L7.825 11H19q.425 0 .713.288T20 12t-.288.713T19 13z" />
+            </svg>
+            <p>Thông tin</p>
+        </div>
+
+        <div class="payment_body">
+            <div class="state_container">
+                <p class="state_item active" id="info" onclick="handleChangeStep(1)" >1. Thông tin</p>
+                <p class="state_item" id="payment" onclick="handleChangeStep(2)">2. Thanh toán</p>
+            </div>
+
+            <div class="step-wrapper active" id="first-step">
+                <div class="box">
+                    <div class="view-list">
+                        <ul class="view-list-wrapper">
+                            <li class="order-product">
+                                <img src="https://s3south.storage.com.vn/scz/products/tainghe-havit-hotroled1.png" alt="" />
+                                <div class="product-info">
+                                    <p class="name">Tai nghe chụp tai Gaming Havit HV-H2232D | Led RGB</p>
+                                    <div>
+                                        <p style="font-size: 14px;">Màu sắc: Đen</p>
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <div class="price">
+                                                <div class="new">399.000đ</div>
+                                                <div class="old">490.000đ</div>
+                                            </div>
+                                            <div class="quantity">Số lượng: <span class="red">1</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="order-product">
+                                <img src="https://s3south.storage.com.vn/scz/products/tainghe-havit-hotroled1.png" alt="" />
+                                <div class="product-info">
+                                    <p class="name">Tai nghe chụp tai Gaming Havit HV-H2232D | Led RGB</p>
+                                    <div>
+                                        <p style="font-size: 14px;">Màu sắc: Đen</p>
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <div class="price">
+                                                <div class="new">399.000đ</div>
+                                                <div class="old">490.000đ</div>
+                                            </div>
+                                            <div class="quantity">Số lượng: <span class="red">1</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="guest-info">
+                    <p class="title">THÔNG TIN KHÁCH HÀNG</p>
+                    <div class="box-info">
+                        <div class="custome-input">
+                            <div class="box-input">
+                                <input type="text" placeholder="Họ và tên (bắt buộc)" required="">
+                                <div class="box-line"></div>
+                            </div>
+                            <div class="box-input">
+                                <input type="text" placeholder="Số điện thoại (bắt buộc)" required="" />
+                                <div class="box-line"></div>
+                            </div>
+                        </div>
+                        <div class="box-input">
+                            <input type="email" placeholder="Email " required="" />
+                            <div class="box-line"></div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="guest-info">
+                    <p class="title">THÔNG TIN NHẬN HÀNG</p>
+                    <div class="box-info">
+                        <div class="custome-input">
+                            <div class="box-input">
+                                <input type="text" placeholder="Họ và tên (bắt buộc)" required="">
+                                <div class="box-line"></div>
+                            </div>
+                            <div class="box-input">
+                                <input type="text" placeholder="Số điện thoại (bắt buộc)" required="" />
+                                <div class="box-line"></div>
+                            </div>
+                        </div>
+                        <div class="custome-input">
+                            <div class="box-input">
+                                <input type="text" placeholder="Họ và tên (bắt buộc)" required="">
+                                <div class="box-line"></div>
+                            </div>
+                            <div class="box-input">
+                                <input type="text" placeholder="Số điện thoại (bắt buộc)" required="" />
+                                <div class="box-line"></div>
+                            </div>
+                        </div>
+                        <div class="box-input">
+                            <input type="text" placeholder="Số điện thoại (bắt buộc)" required="" />
+                            <div class="box-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-wrapper" id="last-step">
+                <div class="guest-info">
+                    <div class="box-info">
+                        <div class="info-quote">
+                            <div class="info-quote-block">
+                                <div class="quote-block-item">
+                                    <p class="quote-block-title">Số lượng sản phẩm</p>
+                                    <p class="quote-block-value">1</p>
+                                </div>
+                                <div class="quote-block-item">
+                                    <p class="quote-block-title">Tiền hàng (tạm tính)</p>
+                                    <p class="quote-block-value">449.000đ</p>
+                                </div>
+                                <div class="quote-block-item">
+                                    <p class="quote-block-title">Phí vận chuyển</p>
+                                    <p class="quote-block-value">22.000đ</p>
+                                </div>
+                                <div class="quote-block-item">
+                                    <p class="quote-block-title">Giảm giá</p>
+                                    <p class="quote-block-value">0</p>
+                                </div>
+                            </div>
+                            <div class="info-quote-bottom">
+                                <div class="quote-bottom-title">
+                                    <p>Tổng tiền</p><span>(đã gồm VAT)</span>
+                                </div>
+                                <p class="quote-bottom-value">471.000đ </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="guest-info">
+                    <div class="title">Thông tin thanh toán</div>
+                    <div class="payment-quote-main">
+                        <div class="payment-main-img">
+                            <img src="https://cdn2.cellphones.com.vn/x400,webp,q100/media/payment-logo/COD.png" alt="">
+                        </div>
+                        <div class="payment-main-title" style="font-weight: 700;">Thanh toán khi nhận hàng</div>
+                    </div>
+                </div>
+    
+                <div class="guest-info">
+                    <div class="title">Đơn vị vận chuyển</div>
+                    <div style="border-radius: 10px; overflow: hidden">
+                        <div class="payment-quote-main active" id="GHTK" onclick="handleChangeShippingVendor('GHTK')">
+                            <div class="payment-item-tick">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
+                                    <path fill="#D70018"
+                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417L5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="default-circle"></div>
+                            <div class="payment-main-img">
+                                <img src="https://giaohangtietkiem.vn/wp-content/themes/giaohangtk/images/logo-header.png" alt="">
+                            </div>
+                            <div class="payment-main-title">
+                                <p style="font-weight: 700;">Giao hàng tiết kiệm</p>
+                                <span style="font-size: 14px; font-weight: 600; color: rgb(223, 6, 42);">22.000đ</span>
+                            </div>
+                        </div>
+                        <div class="payment-quote-main" id="VT" onclick="handleChangeShippingVendor('VT')">
+                            <div class="payment-item-tick">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
+                                    <path fill="#D70018"
+                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417L5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="default-circle"></div>
+                            <div class="payment-main-img">
+                                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/05/Logo-Viettel-Post-Transparent.png" alt="">
+                            </div>
+                            <div class="payment-main-title">
+                                <p style="font-weight: 700;">Viettel Post</p>
+                                <span style="font-size: 14px; font-weight: 600; color: rgb(223, 6, 42);">14.000đ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="guest-info">
+                    <div class="box-info">
+                        <div class="info-quote">
+                            <div class="info-quote-block" style="gap: 20px; padding: 0; border: none;">
+                                <div class="quote-block-item">
+                                    <p class="quote-block-title">Khách hàng</p>
+                                    <p class="quote-block-value">Hoàng Huỳnh</p>
+                                </div>
+                                <div class="quote-block-item">
+                                    <p class="quote-block-title">Số điện thoại</p>
+                                    <p class="quote-block-value">0375145961</p>
+                                </div>
+                                <div class="quote-block-item">
+                                    <p class="quote-block-title">Email</p>
+                                    <p class="quote-block-value">huynhhuyhuyhoang@gmail.com</p>
+                                </div>
+                                <div class="quote-block-item">
+                                    <p class="quote-block-title">Nhận hàng tại</p>
+                                    <p class="quote-block-value capitalize text-right" style="max-width: 400px;"> Số 123,
+                                        Đường
+                                        ab, phường 3, quận 5, hồ chí minh</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="payment-footer">
+        <div class="payment-info">
+            <p>Tổng tiền tạm tính</p>
+            <span>798.000đ</span>
+        </div>
+        <button class="btn"> Tiếp tục </button>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
