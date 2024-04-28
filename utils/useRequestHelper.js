@@ -1,3 +1,7 @@
+
+// https://alazea-be.onrender.com
+// http://localhost:5000
+
 export const request = async ({
     url,
     method,
