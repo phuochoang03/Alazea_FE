@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Star Admin2 </title>
   <!-- plugins:css -->
-
+  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
 
   <link rel="stylesheet" href="../../vendors/simple-line-icons/css/simple-line-icons.css">
@@ -42,7 +42,7 @@
           </a>
         </div>
       </div>
-      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+      <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
             <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">Admin</span></h1>
@@ -71,24 +71,26 @@
             </div>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-bs-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-     
+
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
+          <li class="nav-item nav-category">Quản lý</li>
           <li class="nav-item active">
             <a class="nav-link" href="../../index.html">
               <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Quản lý hóa đơn</span>
+              <span class="menu-title">Quản lý đơn hàng</span>
             </a>
           </li>
-          
-          <li class="nav-item nav-category">Quản lý</li>
+
+
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
               <i class="menu-icon mdi mdi-layers-outline"></i>
@@ -97,19 +99,22 @@
             </a>
             <div class="collapse" id="icons">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../../pages/forms/basic_danhmuc.html">Danh mục sản phẩm</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/forms/basic_danhmuc.html">Danh mục sản
+                    phẩm</a></li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
+              aria-controls="form-elements">
               <i class="menu-icon mdi mdi-card-text-outline"></i>
               <span class="menu-title">Quản lý sản phẩm</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="../../pages/forms/basic_sanpham.html">Danh sách sản phẩm</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../pages/forms/basic_sanpham.html">Danh sách sản
+                    phẩm</a></li>
               </ul>
             </div>
           </li>
@@ -122,45 +127,48 @@
             </a>
             <div class="collapse" id="tables">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../../pages/forms/basic_user.html">Danh sách người dùng</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/forms/basic_user.html">Danh sách người
+                    dùng</a></li>
               </ul>
             </div>
           </li>
         </ul>
       </nav>
       <!-- partial -->
-      <div class="main-panel">        
+      <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            
+
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Thêm danh mục sản phẩm</h4>
-                  <form class="forms-sample">
+                  <form class="forms-sample" name="createCategoryForm"  name="">
                     <div class="form-group">
-                      <label for="exampleInputName1">Tên danh mục</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Tên danh mục">
+                      <label for="categoryName">Tên danh mục</label>
+                      <input type="text" class="form-control" id="categoryName" placeholder="Tên danh mục">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputEmail3">Tên người tạo</label>
-                      <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Tên người tạo">
+                    <div class="form-group" id="product">
+                      <label for="product">Sản phẩm</label>
+                      <div class="form-check" >
+                        <!-- <label class="form-check-label">
+                          <input type="checkbox" class="form-check-input">
+
+                        </label> -->
+                      </div>
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">Thời gian tạo</label>
-                      
-                      <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Thời gian tạo">
-                    </div>
-                    
-                    <button type="submit" class="btn btn-success me-2">Submit</button>
-                    <a href="../../pages/forms/basic_danhmuc.html" class="btn btn-light" role="button" aria-pressed="true">Cancel</a>
+  
+
+                    <button type="submit" class="btn btn-success me-2"  onclick="handleCreateCategory()" >Submit</button>
+                    <a href="../../pages/forms/basic_danhmuc.html" class="btn btn-light" role="button"
+                      aria-pressed="true">Cancel</a>
 
                     <!-- <button class="btn btn-light">Cancel</button> -->
                   </form>
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
         <!-- content-wrapper ends -->
@@ -186,7 +194,7 @@
   <!-- Custom js for this page-->
   <script src="../../js/file-upload.js"></script>
   <script src="../../js/typeahead.js"></script>
-
+  <script type="module" src="../../js/category/createCategory.js"></script>
   <!-- End custom js for this page-->
 </body>
 
