@@ -116,6 +116,11 @@
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
+.form-check-input {
+  margin-left: 5px !important;
+  margin-top: 2px !important;
+}
+
 a.btn.btn-primary.btn-lg.text-white.mb-0.me-0 {
   font-size: 14px;
   line-height: 18px;

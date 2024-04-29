@@ -81,14 +81,15 @@
     <div class="container-fluid page-body-wrapper">
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
+          <li class="nav-item nav-category">Quản lý</li>
           <li class="nav-item active">
             <a class="nav-link" href="../../index.html">
               <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Quản lý hóa đơn</span>
+              <span class="menu-title">Quản lý đơn hàng</span>
             </a>
           </li>
           
-          <li class="nav-item nav-category">Quản lý</li>
+          
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
               <i class="menu-icon mdi mdi-layers-outline"></i>
@@ -135,17 +136,26 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Sửa hóa đơn</h4>
+                  <h4 class="card-title">Sửa đơn hàng</h4>
                   <form class="forms-sample">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <label for="exampleInputPassword4">Trạng thái đơn hàng</label>
-                      <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Trạng thái đơn hàng">
-                    </div>
+                      <input type="text" class="form-control" id="status" placeholder="Trạng thái đơn hàng">
+                    </div> -->
 
                     <div class="form-group">
+                      <div class="form-group">
+                        <label for="status">Trạng thái đơn hàng</label>
+                        <select class="form-control" id="status">
+                          <option value="">--- Chọn danh mục sản phẩm ---</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- <div class="form-group">
                       <label for="exampleInputPassword4">Trạng thái thanh toán</label>
                       <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Trạng thái thanh toán">
-                    </div>
+                    </div> -->
 
                     <button type="submit" class="btn btn-success me-2">Submit</button>
                     <a href="../../index.html" class="btn btn-light" role="button" aria-pressed="true">Cancel</a>

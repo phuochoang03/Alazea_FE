@@ -87,14 +87,15 @@
 
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
+          <li class="nav-item nav-category">Quản lý</li>
           <li class="nav-item">
             <a class="nav-link" href="../../index.html">
               <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Quản lý hóa đơn</span>
+              <span class="menu-title">Quản lý đơn hàng</span>
             </a>
           </li>
 
-          <li class="nav-item nav-category">Quản lý</li>
+          
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
               <i class="menu-icon mdi mdi-layers-outline"></i>
@@ -177,51 +178,7 @@
                                 </th> -->
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  1
-                                </td>
-                                <td>
-                                  admin
-                                </td>
-                                <td>
-                                  admin@gmail.com
-                                </td>
-                                <td>
-                                  15/4/2024
-                                </td>
-                                <td>
-                                  Admin
-                                </td>
-                                <!-- <td>
-                                  <div class="spa"> 
-                                    <a href="#" class="btn btn-outline-danger" role="button" aria-pressed="true"><i class="fa fa-cogs"></i></a>
-                                  </div>
-                                </td> -->
-                              </tr>
-                              <tr>
-                                <td>
-                                  2
-                                </td>
-                                <td>
-                                  custumer
-                                </td>
-                                <td>
-                                  custumer@gmail.com
-                                </td>
-                                <td>
-                                  18/4/2024
-                                </td>
-                                <td>
-                                  User
-                                </td>
-                                <!-- <td>
-                                  <div class="spa"> 
-                                    <a href="#" class="btn btn-outline-danger" role="button" aria-pressed="true"><i class="fa fa-cogs"></i></a>
-                                  </div>
-                                </td> -->
-                              </tr>
+                            <tbody id="user_table">
                             </tbody>
                           </table>
                         </div>
@@ -260,6 +217,7 @@
   <!-- Custom js for this page-->
   <script src="../../js/file-upload.js"></script>
   <script src="../../js/typeahead.js"></script>
+  <script type="module" src="../../js/user/listUsers.js"></script>
   <!-- <script src="../../js/select2.js"></script> -->
   <!-- End custom js for this page-->
 </body>

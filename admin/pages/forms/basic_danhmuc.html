@@ -82,14 +82,15 @@
 
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
+          <li class="nav-item nav-category">Quản lý</li>
           <li class="nav-item">
             <a class="nav-link" href="../../index.html">
               <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Quản lý hóa đơn</span>
+              <span class="menu-title">Quản lý đơn hàng</span>
             </a>
           </li>
           
-          <li class="nav-item nav-category">Quản lý</li>
+     
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
               <i class="menu-icon mdi mdi-layers-outline"></i>
@@ -170,28 +171,7 @@
                                 </th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  1
-                                </td>
-                                <td>
-                                  Tranh thuê hà nội
-                                </td>
-                                <td>
-                                  Ánh Ngô
-                                </td>
-                                <td>
-                                  15/4/2024
-                                </td>
-                                <td>
-                                  <div class="spa"> 
-                                    <a href="../../pages/forms/sua_danh_muc.html" class="btn btn-outline-danger" role="button" aria-pressed="true"><i class="fa fa-cogs"></i></a>
-                                    <!-- <button onclick="updateProduct()" class="btn btn-outline-danger"><i class="fa fa-cogs"></i></button> -->
-                                    <button onclick="deleteProduct()" class="btn ml-1 btn-outline-warning"><i class="fa fa-trash"></i></button>
-                                  </div>
-                                </td>
-                              </tr>
+                            <tbody id="category_table">
                             </tbody>
                           </table>
                         </div>
@@ -230,6 +210,7 @@
   <!-- Custom js for this page-->
   <script src="../../js/file-upload.js"></script>
   <script src="../../js/typeahead.js"></script>
+  <script type="module" src="../../js/category/listCategories.js"></script>
   <!-- End custom js for this page-->
 </body>
 

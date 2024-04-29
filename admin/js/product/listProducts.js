@@ -5,8 +5,8 @@ const deleteProduct = async (productId) => {
         try {
             const res = await requestWithToken({
                 url: `products/${productId}`,
-                clientId: localStorage.getItem("user_id"),
-                token: localStorage.getItem("accessToken"),
+                clientId: "6614e203244a9c4fe791d90d",
+                token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjE0ZTIwMzI0NGE5YzRmZTc5MWQ5MGQiLCJpYXQiOjE3MTQxMDUxODEsImV4cCI6MTcxNDcwOTk4MX0.2H6sRfraAhWvjE74348AVQwykuTQwfjIK5tJlL1-U28",
                 method: "DELETE",
             })
 
@@ -29,7 +29,7 @@ const handleRenderProducts = async () => {
         token: localStorage.getItem("accessToken"),
         method: "GET",
     })
-
+    console.log(res);
     if (res.data) {
         res.data.forEach((product, index) => {
             const trTag = document.createElement("tr")
