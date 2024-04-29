@@ -24,7 +24,8 @@ const handleRenderOrders = async () => {
             <td> ${order.totalPayment} </td>
             <td>
                 <div class="spa"> 
-                    <a href="../../pages/forms/sua_hoa_don.html?id=${order._id}" class="btn btn-outline-danger" role="button" aria-pressed="true"><i class="fa fa-cogs"></i></a>
+                <a href="pages/forms/sua_don_hang.html" class="btn btn-outline-danger" role="button" aria-pressed="true"><i class="fa fa-cogs"></i></a>
+
                     <!-- <button onclick="updateProduct()" class="btn btn-outline-danger"><i class="fa fa-cogs"></i></button> -->
                 </div>
             </td>
