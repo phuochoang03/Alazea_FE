@@ -1,34 +1,51 @@
 // tạo thanh nav cố định khi di chuỷen khỏi trang đầu
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('#navbar');
-    const scrollTop = window.scrollY;
-  
-    if (scrollTop > 0) {
-      navbar.classList.add('navbar-fixed');
-    } else {
-      navbar.classList.remove('navbar-fixed');
-    }
-  });
+window.addEventListener('scroll', function () {
+  const navbar = document.querySelector('#navbar');
+  const scrollTop = window.scrollY;
 
-  var Product = [
-    {
-      id: 1,
-      name: "Phở",
-      price: "30.000",
-      quantity: "1",
-      total: "100000",
-      time: "17/04/2024",
-    },
-    {
-      id: 2,
-      name: "Phở",
-      price: "30.000",
-      quantity: "1",
-      total: "100000",
-      time: "17/04/2024",
-    },
-  ];
-  
+  if (scrollTop > 0) {
+    navbar.classList.add('navbar-fixed');
+  } else {
+    navbar.classList.remove('navbar-fixed');
+  }
+});
+
+const userInfo = JSON.parse(localStorage.getItem("userInfo"))
+
+if (!userInfo.id) {
+    document.location = "/login/login.html"
+}
+
+const loginIcon = document.getElementById("login_link")
+const profileIcon = document.getElementById("profile_link")
+
+profileIcon.innerHTML = `
+    <i class="fas fa-user"></i>
+    ${userInfo.name}
+    `
+loginIcon.style.display = "none"
+profileIcon.style.display = "inline-block"
+
+
+var Product = [
+  {
+    id: 1,
+    name: "Phở",
+    price: "30.000",
+    quantity: "1",
+    total: "100000",
+    time: "17/04/2024",
+  },
+  {
+    id: 2,
+    name: "Phở",
+    price: "30.000",
+    quantity: "1",
+    total: "100000",
+    time: "17/04/2024",
+  },
+];
+
 function showProducts() {
   var html = "";
   var d = 0;
@@ -51,7 +68,7 @@ function updateProfile() {
   var newName = document.getElementById("newName").value;
   var newEmail = document.getElementById("newEmail").value;
   var oldPassword = document.getElementById("oldPassword").value;
-  var newPassword  = document.getElementById("newPassword").value;
+  var newPassword = document.getElementById("newPassword").value;
 
   Proflie[indexToUpdate].name = newName;
   Proflie[indexToUpdate].email = newEmail;

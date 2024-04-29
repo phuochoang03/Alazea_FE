@@ -225,6 +225,7 @@ nav .title1 select:hover {
     padding: 12px 22px;
     font-size: 16px;
     font-weight: 700;
+    user-select: none;
 }
 
 .quantity_action:hover {

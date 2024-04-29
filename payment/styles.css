@@ -255,7 +255,6 @@ nav .title1 select:hover {
     border-bottom: 0 solid rgba(145, 158, 171, .24);
     display: flex;
     gap: 15px;
-    margin-bottom: 10px;
     overflow: hidden;
     padding: 12px 0;
     transition: .2s ease-in-out;

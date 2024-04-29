@@ -28,7 +28,12 @@ const checklogin = async () => {
         const loginMessage = document.getElementById('login-message');
         loginMessage.innerHTML = res.Error.message;
     } else {
-        localStorage.setItem("user_id", res.data.foundUser._id)
+        const userInfo = {
+            id: res.data.foundUser._id,
+            name: res.data.foundUser.fullName,
+            phoneNumber: res.data.foundUser.phone,
+        }
+        localStorage.setItem("userInfo", JSON.stringify(userInfo))
         localStorage.setItem("accessToken", res.data.tokens.accessToken)
         window.location = "/"
     }
@@ -103,17 +108,18 @@ window.checklogin = checklogin
 
 
 // //chuyển từ trang đang nhập sang đăng kí
-// function toggleForms() {
-//     var loginContainer = document.getElementById('login-container');
-//     var registerContainer = document.getElementById('register-container');
+function toggleForms() {
+    var loginContainer = document.getElementById('login-container');
+    var registerContainer = document.getElementById('register-container');
 
-//     if (loginContainer.style.display === 'none') {
-//         loginContainer.style.display = 'block';
-//         registerContainer.style.display = 'none';
-//     } else {
-//         loginContainer.style.display = 'none';
-//         registerContainer.style.display = 'block';
-//     }
-// }
+    if (loginContainer.style.display === 'none') {
+        loginContainer.style.display = 'block';
+        registerContainer.style.display = 'none';
+    } else {
+        loginContainer.style.display = 'none';
+        registerContainer.style.display = 'block';
+    }
+}
 
 
+document.toggleForms = toggleForms

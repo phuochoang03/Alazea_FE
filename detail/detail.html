@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="./detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <title>Document</title>
@@ -18,7 +18,11 @@
             <a href="#">Liên hệ với: +84 123 122 122</a>
         </div>
         <div class="user_actions">
-            <a href="/logn_in/login.html"><i class="fas fa-user"></i> Đăng nhập</a>
+            <a href="/logn_in/login.html" id="login_link"><i class="fas fa-user"></i> Đăng nhập</a>
+            <a href="/purchased_products/index.html" id="profile_link">
+                <i class="fas fa-user"></i>
+                Đăng nhập
+            </a>
             <a href="../Cart/cart.html" id="cart_link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
         </div>
     </header>
@@ -36,28 +40,7 @@
         <p>Chi tiết sản phẩm</p>
     </div>
 
-    <div class="product_container">
-        <img src="https://th.bing.com/th/id/OIP.jW49jEX0OcZhrU_a9kOtYgHaEh?rs=1&pid=ImgDetMain" alt=""
-            class="product_image">
-        <div class="product_info">
-            <div class="product_wrapper">
-                <p class="product_name">Lorem, ipsum.</p>
-                <span class="product_price">1.000.000đ</span>
-                <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, a.</p>
-                <div class="action_container">
-                    <ul class="quantity">
-                        <li class="quantity_action">+</li>
-                        <li class="quantity_value">1</li>
-                        <li class="quantity_action">-</li>
-                    </ul>
-                    <a class="add_cart" href="../Cart/cart.html" style="text-decoration: none;">Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-            <p class="product_category">
-                Danh mục: <span>Tranh thêu Hà Nội</span>
-            </p>
-        </div>
-    </div>
+    <div class="product_container" id="product_container"></div>
 
     <div class="showCmtWeb">
         <a href="#" class="logo">ALA<span>ZEA</span></a>
@@ -65,7 +48,7 @@
         <a href="#" style="margin-left: 100px;">LIÊN HỆ</a>
     </div>
 
-    <script src="./app.js"></script>
+    <script type="module" src="./app.js"></script>
 </body>
 
 </html>

@@ -13,15 +13,18 @@
   <title>ALAZEA - Giỏ hàng</title>
 </head>
 
-<body onload="loadproduct()">
+<body>
   <header>
     <div class="contact_info">
       <a href="#">Email: info@discoveralazea@gmail.com</a>
       <a href="#">Liên hệ với: +84 123 122 122</a>
     </div>
     <div class="user_actions">
-      <a href="/logn_in/login.html"><i class="fas fa-user"></i> Đăng nhập</a>
-      <!-- <a href="/"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a> -->
+      <a href="/logn_in/login.html" id="login_link"><i class="fas fa-user"></i> Đăng nhập</a>
+      <a href="/purchased_products/index.html" id="profile_link">
+        <i class="fas fa-user"></i>
+        Đăng nhập
+      </a>
     </div>
   </header>
   <nav id="navbar">
@@ -91,7 +94,7 @@
 
   <div class="payCart">
     <div class="PaymentProcedures">
-      <a href="../purchased_products/index.html" style="background-color: inherit; color: inherit;">
+      <a href="../payment/index.html" style="background-color: inherit; color: inherit;">
       <button type="submit" class="btn btn-primary">Thủ tục thanh toán</button>
     </a>
     </div>
@@ -103,7 +106,7 @@
     <a href="#" style="margin-left: 100px;">LIÊN HỆ</a>
   </div>
 
-  <script src="cart.js"></script>
+  <script type="module" src="cart.js"></script>
 </body>
 
 </html>
