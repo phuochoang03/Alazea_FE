@@ -5,6 +5,13 @@ const checklogin = async () => {
     var ktrPhone = document.getElementById('checkphone').value;
     var password = document.getElementById('checkmatkhau').value;
 
+
+    if(!ktrPhone.trim().length || !password.trim().length) {
+        const loginMessage = document.getElementById('login-message');
+        loginMessage.innerHTML = "Password and/or phone number is empty !";
+        return
+    }
+
     const body = {
         phone: ktrPhone,
         password
@@ -23,6 +30,7 @@ const checklogin = async () => {
     } else {
         localStorage.setItem("user_id", res.data.foundUser._id)
         localStorage.setItem("accessToken", res.data.tokens.accessToken)
+        window.location = "/"
     }
 
 }
