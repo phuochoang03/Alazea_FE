@@ -138,22 +138,12 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Sửa danh mục sản phẩm</h4>
-                  <form class="forms-sample">
+                  <form class="forms-sample" name="editCategoryForm">
                     <div class="form-group">
                       <label for="exampleInputName1">Tên danh mục</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                      <input type="text" class="form-control" id="categoryName" placeholder="categoryName">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputEmail3">Tên người tạo</label>
-                      <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">Thời gian tạo</label>
-                      
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                    </div>
-
-                    <button type="submit" class="btn btn-success me-2">Submit</button>
+                    <button type="button" class="btn btn-success me-2" onclick="handleEditCategory()">Submit</button>
                     <a href="../../pages/forms/basic_danhmuc.html" class="btn btn-light" role="button" aria-pressed="true">Cancel</a>
 
                     <!-- <button class="btn btn-light">Cancel</button> -->
@@ -173,6 +163,7 @@
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
+  <script type="module" src="../../js/category/editCategory.js"></script>
   <script src="../../vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->

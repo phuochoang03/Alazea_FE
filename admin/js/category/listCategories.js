@@ -38,8 +38,7 @@ const handleCategories = async () => {
             <td>${category.createdAt}</td>
             <td>
                 <div class="spa"> 
-                    <a href="" class="btn btn-outline-danger" role="button" aria-pressed="true"><i class="fa fa-cogs"></i></a>
-                    <!-- <button onclick="updateProduct()" class="btn btn-outline-danger"><i class="fa fa-cogs"></i></button> -->
+                    <a href="../../pages/forms/sua_danh_muc.html?id=${category._id}" class="btn btn-outline-danger" role="button" aria-pressed="true"><i class="fa fa-cogs"></i></a>
                     <button onclick="deleteCategory('${category._id}')" class="btn ml-1 btn-outline-warning"><i class="fa fa-trash"></i></button>
                 </div>
             </td>
