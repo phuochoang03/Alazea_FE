@@ -1,6 +1,8 @@
 import { formatPrice } from "../utils/formatPrice.js";
 import { request, requestWithToken } from "../utils/useRequestHelper.js";
 
+const userInfo = JSON.parse(localStorage.getItem("userInfo"))
+
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('#navbar');
     const scrollTop = window.scrollY;
@@ -12,12 +14,34 @@ window.addEventListener('scroll', function () {
     }
 });
 
+const cartIcon = document.getElementById("cart_link")
+const loginIcon = document.getElementById("login_link")
+const profileIcon = document.getElementById("profile_link")
+const logoutIcon = document.getElementById("logout_link")
+
+profileIcon.innerHTML = userInfo.id ? `
+<i class="fas fa-user"></i>
+${userInfo.name}
+` : ""
+
+cartIcon.style.display = userInfo.id ? "inline-block" : "none"
+loginIcon.style.display = userInfo.id ? "none" : "inline-block"
+profileIcon.style.display = userInfo.id ? "inline-block" : "none"
+logoutIcon.style.display = userInfo.id ? "inline-block" : "none"
+
+
 const categoryWrapperElm = document.querySelector('.category-wrapper');
 const listProductsElm = document.querySelector('.list_products');
 const paginationElm = document.querySelector('.pagination');
 const searchFormElm = document.querySelector('.search-form');
 const inputSearchElm = document.querySelector('.input-search');
 const filterItemElms = document.querySelectorAll('.filter-item');
+
+const handleLogout = () => {
+    localStorage.setItem("userInfo", JSON.stringify({}))
+    localStorage.setItem("accessToken", "")
+    document.location = "/logn_in/login.html"
+}
 
 // pagination
 const params = {
@@ -67,7 +91,7 @@ const handleChangeCate = async (cateSlug) => {
 
         for (let i = 1; i <= totalPage; i++) {
             paginationHtmlStr += `
-            <li class="page-item ${i === pagination .currPage ? 'active' : ''}" onclick="onGoToPage(${i});">
+            <li class="page-item ${i === pagination.currPage ? 'active' : ''}" onclick="onGoToPage(${i});">
                 <a class="page-link">${i}</a>
             </li>
             `;
@@ -83,7 +107,7 @@ const handleChangeCate = async (cateSlug) => {
 
         paginationElm.innerHTML = paginationHtmlStr;
     } catch (error) {
-        console.log('Error', error);      
+        console.log('Error', error);
     }
 }
 
@@ -137,7 +161,7 @@ const handleAddToCart = async (btnElm) => {
         body: JSON.stringify(listProduct)
     })
 
-    if(!updateCartRes.Error) {
+    if (!updateCartRes.Error) {
         document.location = "../Cart/cart.html"
     }
 }
@@ -182,7 +206,7 @@ const renderProducts = async () => {
 
         for (let i = 1; i <= totalPage; i++) {
             paginationHtmlStr += `
-            <li class="page-item ${i === pagination .currPage ? 'active' : ''}" onclick="onGoToPage(${i});">
+            <li class="page-item ${i === pagination.currPage ? 'active' : ''}" onclick="onGoToPage(${i});">
                 <a class="page-link">${i}</a>
             </li>
             `;
@@ -198,7 +222,7 @@ const renderProducts = async () => {
 
         paginationElm.innerHTML = paginationHtmlStr;
     } catch (error) {
-        console.log('Error', error);      
+        console.log('Error', error);
     }
 };
 renderProducts();
@@ -241,3 +265,4 @@ document.onPrevious = onPrevious;
 document.onGoToPage = onGoToPage;
 document.handleChangeCate = handleChangeCate;
 document.handleAddToCart = handleAddToCart;
+document.handleLogout = handleLogout

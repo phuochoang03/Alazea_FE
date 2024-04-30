@@ -12,8 +12,7 @@
   <title>ALAZEA</title>
   <link rel="stylesheet" href="./profiles.css">
 </head>
-
-<body onload="showProducts()">
+<body>
   <header>
     <div class="contact_info">
       <a href="#">Email: info@discoveralazea@gmail.com</a>
@@ -25,6 +24,8 @@
         <i class="fas fa-user"></i>
         Đăng nhập
       </a>
+      <a href="/Cart/cart.html" id="cart_link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+      <div id="logout_link" onclick="handleLogout()"> Đăng xuất </div>
     </div>
   </header>
   <nav id="navbar">
@@ -47,41 +48,46 @@
     <div class="container">
       <div class="main-text">
         <h2>Thông tin của khách hàng</h2>
-        <div class="form">
-          <input type="text" id="newName" placeholder="Tên" style="width: 300px;
-                                                                               border-top-style: hidden;
-                                                                               border-right-style: hidden;
-                                                                               border-left-style: hidden;  
-                                                                               outline: none;" />
-          <input type="text" id="newEmail" placeholder="Email" style="width: 300px;
-                                                                                border-top-style: hidden;
-                                                                                border-right-style: hidden;
-                                                                                border-left-style: hidden;  
-                                                                                outline: none;" />
-          <input type="text" id="oldPassword" placeholder="Mật khẩu cũ" style="width: 300px;
-                                                                              border-top-style: hidden;
-                                                                              border-right-style: hidden;
-                                                                              border-left-style: hidden;  
-                                                                              outline: none;" />
-          <input type="text" id="newPassword" placeholder="Mật khẩu mới" style="width: 300px;
-                                                                              border-top-style: hidden;
-                                                                              border-right-style: hidden;
-                                                                              border-left-style: hidden;  
-                                                                              outline: none;" />
+        <form class="form" name="userForm" >
+          <input type="text" name="name" placeholder="Tên" 
+          style="width: 300px;
+              border-top-style: hidden;
+              border-right-style: hidden;
+              border-left-style: hidden;  
+              outline: none;" />
+          <input type="text" name="oldPassword" placeholder="Mật khẩu cũ" 
+          style="width: 300px;
+                border-top-style: hidden;
+                border-right-style: hidden;
+                border-left-style: hidden;  
+                outline: none;" />
+          <input type="text" name="newPassword" placeholder="Mật khẩu mới" 
+          style="width: 300px;
+              border-top-style: hidden;
+              border-right-style: hidden;
+              border-left-style: hidden;  
+              outline: none;" />
+          <input type="text" name="confirmNewPassword" placeholder="Xác nhận mật khẩu mới" 
+          style="width: 300px;
+              border-top-style: hidden;
+              border-right-style: hidden;
+              border-left-style: hidden;  
+              outline: none;" />
           <br />
-          <input type="button" value="Cập Nhật" onclick="updateProfile()" />
-        </div>
+          <input type="button" value="Cập Nhật" onclick="handleChangeUserInfo()" />
+        </form>
 
         <h2>Các sản phẩm đã mua</h2>
         <table border="1">
           <thead>
             <tr>
               <th>STT</th>
-              <th>SẢN PHẨM</th>
-              <th>GIÁ</th>
-              <th>SỐ LƯỢNG</th>
-              <th>THÀNH TIỀN</th>
-              <th>THỜI GIAN ĐÃ MUA</th>
+              <th>Mã đơn hàng</th>
+              <th>Đơn vị vận chuyển</th>
+              <th>Trạng thái</th>
+              <th>Thành tiền</th>
+              <th>Thời gian mua</th>
+              <th>Hành động</th>
             </tr>
           </thead>
           <tbody id="tbl"></tbody>
@@ -97,7 +103,7 @@
     <a href="#" style="margin-left: 100px;">LIÊN HỆ</a>
   </div>
 
-  <script src="profiles.js"></script>
+  <script type="module" src="profiles.js"></script>
 </body>
 
 </html>

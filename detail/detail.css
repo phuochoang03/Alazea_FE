@@ -32,6 +32,7 @@ header .spacer {
     background: #dadada;
 }
 
+header .user_actions #logout_link,
 header .user_actions #cart_link {
     border-left: 1px solid #dadada;
     margin-left: 6px;
@@ -44,12 +45,14 @@ header .contact_info {
     gap: 16px;
 }
 
+header #logout_link,
 header a {
+    cursor: pointer;
     color: #fff;
-    text-decoration: none;
-    /*loại bỏ gach chan*/
+    text-decoration: none; /*loại bỏ gach chan*/
 }
 
+header #logout_link:hover,
 header a:hover {
     color: yellow;
 }

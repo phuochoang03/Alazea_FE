@@ -18,6 +18,7 @@ const userInfo = JSON.parse(localStorage.getItem("userInfo"))
 const cartIcon = document.getElementById("cart_link")
 const loginIcon = document.getElementById("login_link")
 const profileIcon = document.getElementById("profile_link")
+const logoutIcon = document.getElementById("logout_link")
 
 profileIcon.innerHTML = userInfo.id ? `
 <i class="fas fa-user"></i>
@@ -27,13 +28,18 @@ ${userInfo.name}
 cartIcon.style.display = userInfo.id ? "inline-block" : "none"
 loginIcon.style.display = userInfo.id ? "none" : "inline-block"
 profileIcon.style.display = userInfo.id ? "inline-block" : "none"
-
+logoutIcon.style.display = userInfo.id ? "inline-block" : "none"
 
 // Main functions
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
 let quantity = 1
 
+const handleLogout = () => {
+    localStorage.setItem("userInfo", JSON.stringify({}))
+    localStorage.setItem("accessToken", "")
+    document.location = "/logn_in/login.html"
+}
 
 const handleRenderProduct = async () => {
     const res = await request({
@@ -133,3 +139,4 @@ const handleAddToCart = async (productId) => {
 handleRenderProduct()
 document.handleAddToCart = handleAddToCart
 document.handleChangeQuantity = handleChangeQuantity
+document.handleLogout = handleLogout

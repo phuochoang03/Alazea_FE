@@ -18,8 +18,13 @@
             <a href="#">Liên hệ với: +84 123 122 122</a>
         </div>
         <div class="user_actions">
-            <a href="/logn_in/login.html"><i class="fas fa-user"></i> Đăng nhập</a>
-            <a href="../Cart/cart.html" id="cart_link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+            <a href="/logn_in/login.html" id="login_link"><i class="fas fa-user"></i> Đăng nhập</a>
+            <a href="/purchased_products/index.html" id="profile_link">
+                <i class="fas fa-user"></i>
+                Đăng nhập
+            </a>
+            <a href="/Cart/cart.html" id="cart_link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+            <div id="logout_link" onclick="handleLogout()"> Đăng xuất </div>
         </div>
     </header>
     <nav id="navbar">
@@ -66,16 +71,18 @@
                         <label class="filter_item-label" for="oldest">Ngày thêm: Cũ nhất</label>
                     </li>
                     <li class="filter_item">
-                        <input class="filter-item" type="radio" name="sort" id="price_cheapest" value="price_cheapest" />
+                        <input class="filter-item" type="radio" name="sort" id="price_cheapest"
+                            value="price_cheapest" />
                         <label class="filter_item-label" for="price_cheapest">Thứ tự theo giá: Thấp đến cao</label>
                     </li>
                     <li class="filter_item">
-                        <input class="filter-item" type="radio" name="sort" id="price_expensive" value="price_expensive" />
+                        <input class="filter-item" type="radio" name="sort" id="price_expensive"
+                            value="price_expensive" />
                         <label class="filter_item-label" for="price_expensive">Thứ tự theo giá: Cao đến thấp</label>
                     </li>
                 </ul>
             </div>
-            
+
             <div class="main_content-right">
                 <ul class="list_products"></ul>
                 <ul class="pagination"></ul>

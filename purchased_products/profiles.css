@@ -78,6 +78,7 @@ header .spacer {
   background: #dadada;
 }
 
+header .user_actions #logout_link,
 header .user_actions #cart_link {
   border-left: 1px solid #dadada !important;
   margin-left: 6px !important;
@@ -91,11 +92,12 @@ header .contact_info {
 }
 
 header a {
+  cursor: pointer;
   color: #fff;
-  text-decoration: none;
-  /*loại bỏ gach chan*/
+  text-decoration: none; /*loại bỏ gach chan*/
 }
 
+header #logout_link:hover,
 header a:hover {
   color: yellow;
 }

@@ -19,6 +19,7 @@ const userInfo = JSON.parse(localStorage.getItem("userInfo"))
 
 const loginIcon = document.getElementById("login_link")
 const profileIcon = document.getElementById("profile_link")
+const logoutIcon = document.getElementById("logout_link")
 
 profileIcon.innerHTML = `
     <i class="fas fa-user"></i>
@@ -26,6 +27,13 @@ profileIcon.innerHTML = `
     `
 loginIcon.style.display = "none"
 profileIcon.style.display = "inline-block"
+logoutIcon.style.display = userInfo.id ? "inline-block" : "none" 
+
+const handleLogout = () => {
+  localStorage.setItem("userInfo", JSON.stringify({}))
+  localStorage.setItem("accessToken", "")
+  document.location = "/logn_in/login.html"
+}
 
 const handleGetCart = async () => {
   const products = []
@@ -147,3 +155,4 @@ handleGetCart()
 document.handleAddProduct = handleAddProduct
 document.handleRemoveProduct = handleRemoveProduct
 document.handleDeleteProduct = handleDeleteProduct
+document.handleLogout = handleLogout

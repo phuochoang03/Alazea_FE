@@ -4,6 +4,7 @@ const userInfo = JSON.parse(localStorage.getItem("userInfo"))
 const cartIcon = document.getElementById("cart_link")
 const loginIcon = document.getElementById("login_link")
 const profileIcon = document.getElementById("profile_link")
+const logoutIcon = document.getElementById("logout_link")
 
 profileIcon.innerHTML = userInfo.id ? `
   <i class="fas fa-user"></i>
@@ -13,6 +14,7 @@ profileIcon.innerHTML = userInfo.id ? `
 cartIcon.style.display = userInfo.id ? "inline-block" : "none" 
 loginIcon.style.display = userInfo.id ? "none" : "inline-block"
 profileIcon.style.display = userInfo.id ? "inline-block" : "none" 
+logoutIcon.style.display = userInfo.id ? "inline-block" : "none" 
 
 
 window.addEventListener('scroll', function () {
@@ -28,8 +30,13 @@ window.addEventListener('scroll', function () {
 
 const res = await request({ url: "categories?limit=5", method: "GET" })
 const resAllProducts = await request({ url: "products?limit=8", method: "GET" })
-console.log({resAllProducts});
 const listProduct = []
+
+const handleLogout = () => {
+  localStorage.setItem("userInfo", JSON.stringify({}))
+  localStorage.setItem("accessToken", "")
+  document.location = "/logn_in/login.html"
+}
 
 const newProductsZone = document.getElementById("sanphammoi")
 resAllProducts.data.forEach(product => {
@@ -80,3 +87,4 @@ const getCategories = async () => {
 
 getCategories()
 document.handleShowAllProduct = handleShowAllProduct
+document.handleLogout = handleLogout
