@@ -5,6 +5,15 @@ if(await checkAuth() !== "admin") {
     document.location = "/"
 }
 
+const adminName = document.getElementById("admin_name")
+adminName.innerHTML = JSON.parse(localStorage.getItem("userInfo")).name
+
+const handleLogout = () => {
+    localStorage.setItem("userInfo", JSON.stringify({}))
+    localStorage.setItem("accessToken", "")
+    document.location = "/logn_in/login.html"
+}
+
 const deleteCategory = async (categoryId) => {
     if (confirm(`Bạn muốn xoá danh mục sản phẩm này ?`) === true) {
         try {
@@ -57,3 +66,4 @@ const handleCategories = async () => {
 handleCategories()
 
 document.deleteCategory = deleteCategory
+document.handleLogout = handleLogout
