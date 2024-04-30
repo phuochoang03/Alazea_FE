@@ -11,18 +11,15 @@
 </head>
 
 <body>
+
     <header>
         <div class="contact_info">
             <a href="#">Email: info@discoveralazea@gmail.com</a>
             <a href="#">Liên hệ với: +84 123 122 122</a>
         </div>
         <div class="user_actions">
-            <a href="/logn_in/login.html" id="login_link"><i class="fas fa-user"></i> Đăng nhập</a>
-            <a href="/purchased_products/index.html" id="profile_link">
-                <i class="fas fa-user"></i>
-                Đăng nhập
-            </a>
-            <a href="./Cart/cart.html" id="cart_link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+            <a href="/logn_in/login.html"><i class="fas fa-user"></i> Đăng nhập</a>
+            <a href="../Cart/cart.html" id="cart_link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
         </div>
     </header>
     <nav id="navbar">
@@ -44,114 +41,55 @@
 
     <div class="container">
         <div class="search_container">
+            <!-- <div class="search_item results_limit">
+                <span>Hiển thị</span>
+                <select name="" id="">
+                    <option value="10">10</option>
+                    <option value="30">30</option>
+                    <option value="50">50</option>
+                </select>
+                <span>hàng</span>
+            </div> -->
             <div class="search_wrapper">
-                <div class="search_item">
-                    <input type="text" placeholder="Tìm kiếm" />
+                <form class="search_item search-form">
+                    <input type="text" placeholder="Tìm kiếm" class="input-search" />
                     <button>Tìm kiếm</button>
-                </div>
+                </form>
             </div>
         </div>
 
         <div class="main_content">
             <div class="filter_container">
-                <ul class="filter_wrapper">
+                <ul class="filter_wrapper category-wrapper">
                     <li class="filter_type">Danh mục</li>
-                    <li class="filter_item">
-                        <input type="checkbox" name="" id="" />
-                        <p>Tranh thêu chân dung</p>
-                    </li>
-                    <li class="filter_item">
-                        <input type="checkbox" name="" id="" />
-                        <p>Tranh thêu chân dung</p>
-                    </li>
-                    <li class="filter_item">
-                        <input type="checkbox" name="" id="" />
-                        <p>Tranh thêu chân dung</p>
-                    </li>
                 </ul>
 
                 <ul class="filter_wrapper">
                     <li class="filter_type">Sắp xếp theo</li>
                     <li class="filter_item">
-                        <input type="checkbox" name="" id="" />
-                        <p>Tranh thêu chân dung</p>
+                        <input class="filter-item" type="radio" name="sort" id="latest" value="latest" />
+                        <label class="filter_item-label" for="latest">Ngày thêm: Mới nhất</label>
                     </li>
                     <li class="filter_item">
-                        <input type="checkbox" name="" id="" />
-                        <p>Tranh thêu chân dung</p>
+                        <input class="filter-item" type="radio" name="sort" id="oldest" value="oldest" />
+                        <label class="filter_item-label" for="oldest">Ngày thêm: Cũ nhất</label>
                     </li>
                     <li class="filter_item">
-                        <input type="checkbox" name="" id="" />
-                        <p>Tranh thêu chân dung</p>
+                        <input class="filter-item" type="radio" name="sort" id="price_cheapest" value="price_cheapest" />
+                        <label class="filter_item-label" for="price_cheapest">Thứ tự theo giá: Thấp đến cao</label>
+                    </li>
+                    <li class="filter_item">
+                        <input class="filter-item" type="radio" name="sort" id="price_expensive" value="price_expensive" />
+                        <label class="filter_item-label" for="price_expensive">Thứ tự theo giá: Cao đến cao</label>
                     </li>
                 </ul>
             </div>
-            <ul class="list_products">
-                <li class="product">
-                    <div class="product_container">
-                        <div class="image">
-                            <img src="https://th.bing.com/th/id/OIP.jW49jEX0OcZhrU_a9kOtYgHaEh?rs=1&pid=ImgDetMain"
-                                alt="" fill />
-                        </div>
-                        <div class="product_body">
-                            <div class="user_actions">
-                                <input type="number" min="1" step="1" value="1" />
-                                <button>Thêm vào giỏ</button>
-                            </div>
-                            <p class="product_name">Tranh thêu hồ gươm</p>
-                            <p class="product_price">1.000.000đ</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="product">
-                    <div class="product_container">
-                        <div class="image">
-                            <img src="https://th.bing.com/th/id/OIP.jW49jEX0OcZhrU_a9kOtYgHaEh?rs=1&pid=ImgDetMain"
-                                alt="" fill />
-                        </div>
-                        <div class="product_body">
-                            <div class="user_actions">
-                                <input type="number" min="1" step="1" value="1" />
-                                <button>Thêm vào giỏ</button>
-                            </div>
-                            <p class="product_name">Tranh thêu hồ gươm</p>
-                            <p class="product_price">1.000.000đ</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="product">
-                    <div class="product_container">
-                        <div class="image">
-                            <img src="https://th.bing.com/th/id/OIP.jW49jEX0OcZhrU_a9kOtYgHaEh?rs=1&pid=ImgDetMain"
-                                alt="" fill />
-                        </div>
-                        <div class="product_body">
-                            <div class="user_actions">
-                                <input type="number" min="1" step="1" value="1" />
-                                <button>Thêm vào giỏ</button>
-                            </div>
-                            <p class="product_name">Tranh thêu hồ gươm</p>
-                            <p class="product_price">1.000.000đ</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="product">
-                    <div class="product_container">
-                        <div class="image">
-                            <img src="https://th.bing.com/th/id/OIP.jW49jEX0OcZhrU_a9kOtYgHaEh?rs=1&pid=ImgDetMain"
-                                alt="" fill />
-                        </div>
-                        <div class="product_body">
-                            <div class="user_actions">
-                                <input type="number" min="1" step="1" value="1" />
-                                <button>Thêm vào giỏ</button>
-                            </div>
-                            <p class="product_name">Tranh thêu hồ gươm</p>
-                            <p class="product_price">1.000.000đ</p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            
+            <div class="main_content-right">
+                <ul class="list_products"></ul>
+
+                <ul class="pagination"></ul>
+            </div>
         </div>
     </div>
 
@@ -161,7 +99,7 @@
         <a href="#" style="margin-left: 100px;">LIÊN HỆ</a>
     </div>
 
-    <script src="./app.js"></script>
+    <script src="./app.js" type="module"></script>
 
 </body>
 
