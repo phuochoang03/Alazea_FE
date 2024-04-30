@@ -5,6 +5,15 @@ if(await checkAuth() !== "admin") {
     document.location = "/"
 }
 
+const adminName = document.getElementById("admin_name")
+adminName.innerHTML = JSON.parse(localStorage.getItem("userInfo")).name
+
+const handleLogout = () => {
+    localStorage.setItem("userInfo", JSON.stringify({}))
+    localStorage.setItem("accessToken", "")
+    document.location = "/logn_in/login.html"
+}
+
 const handleRenderUsers = async () => {
     const tbodyTag = document.getElementById("user_table")
 
@@ -32,3 +41,4 @@ const handleRenderUsers = async () => {
 }
 
 handleRenderUsers()
+document.handleLogout = handleLogout
