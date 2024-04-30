@@ -5,6 +5,15 @@ if(await checkAuth() !== "admin") {
     document.location = "/"
 }
 
+const adminName = document.getElementById("admin_name")
+adminName.innerHTML = JSON.parse(localStorage.getItem("userInfo")).name
+
+const handleLogout = () => {
+    localStorage.setItem("userInfo", JSON.stringify({}))
+    localStorage.setItem("accessToken", "")
+    document.location = "/logn_in/login.html"
+}
+
 const deleteProduct = async (productId) => {
     if (confirm(`Bạn muốn xoá sản phẩm này ?`) === true) {
         try {
@@ -64,3 +73,4 @@ const handleRenderProducts = async () => {
 handleRenderProducts()
 
 document.deleteProduct = deleteProduct
+document.handleLogout = handleLogout

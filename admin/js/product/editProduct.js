@@ -6,6 +6,15 @@ if(await checkAuth() !== "admin") {
     document.location = "/"
 }
 
+const adminName = document.getElementById("admin_name")
+adminName.innerHTML = JSON.parse(localStorage.getItem("userInfo")).name
+
+const handleLogout = () => {
+    localStorage.setItem("userInfo", JSON.stringify({}))
+    localStorage.setItem("accessToken", "")
+    document.location = "/logn_in/login.html"
+}
+
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
 let foundProduct
@@ -111,3 +120,4 @@ const handleUpdateProduct = async () => {
 handleGetProductById()
 document.handleChangeProductImage = handleChangeProductImage
 document.handleUpdateProduct = handleUpdateProduct
+document.handleLogout = handleLogout

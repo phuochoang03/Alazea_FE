@@ -5,6 +5,15 @@ if(await checkAuth() !== "admin") {
     document.location = "/"
 }
 
+const adminName = document.getElementById("admin_name")
+adminName.innerHTML = JSON.parse(localStorage.getItem("userInfo")).name
+
+const handleLogout = () => {
+    localStorage.setItem("userInfo", JSON.stringify({}))
+    localStorage.setItem("accessToken", "")
+    document.location = "/logn_in/login.html"
+}
+
 const handleRenderCategories = async() => {
     const res = await requestWithToken({
         url: "categories",
@@ -87,3 +96,4 @@ const handleChangeProductImage = () => {
 handleRenderCategories()
 document.handleCreateProduct = handleCreateProduct
 document.handleChangeProductImage = handleChangeProductImage
+document.handleLogout = handleLogout
