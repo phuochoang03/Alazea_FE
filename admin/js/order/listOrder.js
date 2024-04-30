@@ -1,4 +1,19 @@
 import { requestWithToken } from "../../../utils/useRequestHelper.js";
+import { formatPrice } from "../../../utils/formatPrice.js";
+import { checkAuth } from "../../../utils/checkAuth.js";
+
+if(await checkAuth() !== 'admin') {
+    document.location = "/"
+}
+
+const adminName = document.getElementById("admin_name")
+adminName.innerHTML = JSON.parse(localStorage.getItem("userInfo")).name
+
+const handleLogout = () => {
+    localStorage.setItem("userInfo", JSON.stringify({}))
+    localStorage.setItem("accessToken", "")
+    document.location = "/logn_in/login.html"
+}
 
 const handleUpdateOrderStatus = async (status, orderId) => {
     const res = await requestWithToken({
@@ -19,8 +34,8 @@ const handleRenderOrders = async () => {
     tbody.innerHTML = ''
     const res = await requestWithToken({
         url: "orders",
-        clientId: "6614e203244a9c4fe791d90d",
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjE0ZTIwMzI0NGE5YzRmZTc5MWQ5MGQiLCJpYXQiOjE3MTQxMDUxODEsImV4cCI6MTcxNDcwOTk4MX0.2H6sRfraAhWvjE74348AVQwykuTQwfjIK5tJlL1-U28",
+        clientId: JSON.parse(localStorage.getItem("userInfo")).id,
+        token: localStorage.getItem("accessToken"),
         method: "GET",
     })
 
@@ -36,7 +51,7 @@ const handleRenderOrders = async () => {
             <td>
                 ${order.status === 'PAID' ? 'Đã thanh toán' : 'Chưa thanh toán'} </td>
             <td> ${order.createdBy.fullName} </td>
-            <td> ${order.totalPayment} </td>
+            <td> ${formatPrice(order.totalPayment)} </td>
             <td>
                 <div class="spa"> 
                     ${
@@ -97,3 +112,4 @@ const handleRenderOrders = async () => {
 
 handleRenderOrders()
 document.handleUpdateOrderStatus = handleUpdateOrderStatus
+document.handleLogout = handleLogout

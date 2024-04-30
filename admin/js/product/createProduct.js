@@ -1,4 +1,9 @@
 import { request, requestWithToken } from "../../../utils/useRequestHelper.js";
+import { checkAuth } from "../../../utils/checkAuth.js";
+
+if(await checkAuth() !== "admin") {
+    document.location = "/"
+}
 
 const handleRenderCategories = async() => {
     const res = await requestWithToken({
@@ -55,8 +60,8 @@ const handleCreateProduct = async () => {
     
         const res = await requestWithToken({
             url: "products",
-            clientId: "6614e203244a9c4fe791d90d",
-            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjE0ZTIwMzI0NGE5YzRmZTc5MWQ5MGQiLCJpYXQiOjE3MTQxMDUxODEsImV4cCI6MTcxNDcwOTk4MX0.2H6sRfraAhWvjE74348AVQwykuTQwfjIK5tJlL1-U28",
+            clientId: JSON.parse(localStorage.getItem("userInfo")).id,
+            token: localStorage.getItem("accessToken"),
             method: "POST",
             body: JSON.stringify(productBody)
         })

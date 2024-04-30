@@ -1,4 +1,8 @@
 import { requestWithToken } from "../utils/useRequestHelper.js";
+import { formatPrice } from "../utils/formatPrice.js";
+import { checkAuth } from "../utils/checkAuth.js";
+
+await checkAuth()
 
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('#navbar');
@@ -12,10 +16,6 @@ window.addEventListener('scroll', function () {
 });
 
 const userInfo = JSON.parse(localStorage.getItem("userInfo"))
-
-if (!userInfo.id) {
-    document.location = "/login/login.html"
-}
 
 const loginIcon = document.getElementById("login_link")
 const profileIcon = document.getElementById("profile_link")
@@ -73,8 +73,8 @@ paymentProducts.forEach((product) => {
                 <div
                     style="display: flex; justify-content: space-between; align-items: center;">
                     <div class="price">
-                        <div class="new">${product.price - ((product.price * product.discount) / 100)}</div>
-                        <div class="old">${product.price}</div>
+                        <div class="new">${formatPrice(product.price - ((product.price * product.discount) / 100))}</div>
+                        <div class="old">${formatPrice(product.price)}</div>
                     </div>
                     <div class="quantity">Số lượng: <span class="red">${product.quantity}</span></div>
                 </div>
@@ -101,7 +101,7 @@ const handleCalculatePayment = () => {
 
     if ([...paymentDom.classList].includes("active")) {
         numberProduct.innerHTML = summary.total
-        total.innerHTML = summary.payment
+        total.innerHTML = formatPrice(summary.payment)
         const ghtkValue = [...document.getElementById("GHTK").classList].includes("active")
         if(ghtkValue) {
             shippingFee.innerHTML = `22.000đ`
@@ -112,10 +112,10 @@ const handleCalculatePayment = () => {
             summary.payment += 14000
             orderBody.shippingFee = 14000
         }
-        totalPayment.innerHTML = summary.payment
+        totalPayment.innerHTML = formatPrice(summary.payment)
     } 
-    orderBody.totalPayment = summary.payment
-    stepTotal.innerHTML = summary.payment
+    orderBody.totalPayment = formatPrice(summary.payment)
+    stepTotal.innerHTML = formatPrice(summary.payment)
 }
 
 const handleChangeStep = (step) => {

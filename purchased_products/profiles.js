@@ -1,3 +1,7 @@
+import { checkAuth } from "../utils/checkAuth.js";
+
+await checkAuth()
+
 // tạo thanh nav cố định khi di chuỷen khỏi trang đầu
 window.addEventListener('scroll', function () {
   const navbar = document.querySelector('#navbar');
@@ -11,10 +15,6 @@ window.addEventListener('scroll', function () {
 });
 
 const userInfo = JSON.parse(localStorage.getItem("userInfo"))
-
-if (!userInfo.id) {
-    document.location = "/login/login.html"
-}
 
 const loginIcon = document.getElementById("login_link")
 const profileIcon = document.getElementById("profile_link")

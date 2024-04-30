@@ -1,4 +1,5 @@
 import { request, requestWithToken } from "../utils/useRequestHelper.js"
+import { formatPrice } from "../utils/formatPrice.js";
 
 // Side functions
 window.addEventListener('scroll', function () {
@@ -52,7 +53,7 @@ const handleRenderProduct = async () => {
         <div class="product_info">
             <div class="product_wrapper">
                 <p class="product_name">${product.name}</p>
-                <span class="product_price">${product.price}</span>
+                <span class="product_price">${formatPrice(product.price)}</span>
                 <p class="desc">${product.description}</p>
                 <div class="action_container">
                     <ul class="quantity">
@@ -91,7 +92,6 @@ const handleChangeQuantity = async (action) => {
     const quantityValue = document.getElementById("quantity_value")
     quantityValue.innerHTML = quantity
 }
-
 
 const handleAddToCart = async (productId) => {
     const resUserCart = await requestWithToken({

@@ -1,5 +1,5 @@
 import { formatPrice } from "../utils/formatPrice.js";
-import { request } from "../utils/useRequestHelper.js";
+import { request, requestWithToken } from "../utils/useRequestHelper.js";
 
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('#navbar');
@@ -19,6 +19,74 @@ const searchFormElm = document.querySelector('.search-form');
 const inputSearchElm = document.querySelector('.input-search');
 const filterItemElms = document.querySelectorAll('.filter-item');
 
+// pagination
+const params = {
+    page: 1,
+    limit: 6,
+    sort: '',
+    category: ''
+};
+
+const handleChangeCate = async (cateSlug) => {
+    try {
+        params.category = cateSlug
+        const queryStr = new URLSearchParams(params);
+        const { data, pagination } = await request({
+            url: `products?${queryStr}`,
+        });
+
+        const productHtmlStr = data?.map(product => `
+            <li class="product">
+                <div class="product_container">
+                    <div class="image">
+                        <img src=${product.image}
+                            alt="" fill />
+                    </div>
+                    <div class="product_body">
+                        <div class="user_actions">
+                            <input type="number" min="1" step="1" value="1" />
+                            <button>Thêm vào giỏ</button>
+                        </div>
+                        <p class="product_name">${product.name}</p>
+                        <p class="product_price">${formatPrice(product.price)}</p>
+                    </div>
+                </div>
+            </li>
+        `).join('');
+
+        listProductsElm.innerHTML = productHtmlStr;
+
+        // pagination
+        const totalPage = Math.ceil(pagination.total / pagination.limit);
+        let paginationHtmlStr = '';
+        if (pagination.currPage > 1) {
+            paginationHtmlStr += `<li class="page-item" onclick="onPrevious();">
+            <a class="page-link">Previous</a>
+            </li>`;
+        };
+
+        for (let i = 1; i <= totalPage; i++) {
+            paginationHtmlStr += `
+            <li class="page-item ${i === pagination .currPage ? 'active' : ''}" onclick="onGoToPage(${i});">
+                <a class="page-link">${i}</a>
+            </li>
+            `;
+        };
+
+        if (pagination.currPage < totalPage) {
+            paginationHtmlStr += `
+            <li class="page-item" onclick="onNextPage();">
+                <a class="page-link">Next</a>
+            </li>
+            `;
+        };
+
+        paginationElm.innerHTML = paginationHtmlStr;
+    } catch (error) {
+        console.log('Error', error);      
+    }
+}
+
 // render list category
 const renderListCategory = async () => {
     try {
@@ -32,7 +100,7 @@ const renderListCategory = async () => {
 
         const categoriesHtmlStr = data?.map(item => `
             <li class="filter_item">
-                <input type="checkbox" name="" id="" />
+                <input type="radio" name="cate_filter" id="" onchange="handleChangeCate('${item.slug}')" />
                 <p>${item.name}</p>
             </li>
         `).join('');
@@ -42,14 +110,37 @@ const renderListCategory = async () => {
         console.log('Error', error);
     }
 };
+
 renderListCategory();
 
-// pagination
-const params = {
-    page: 1,
-    limit: 6,
-    sort: ''
-};
+const handleAddToCart = async (btnElm) => {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+
+    const userCartRes = await requestWithToken({
+        url: "cart",
+        clientId: userInfo.id,
+        token: localStorage.getItem("accessToken"),
+        method: "GET"
+    })
+
+    const listProduct = userCartRes.data.products.map(product => product._id)
+    const quantity = btnElm.parentNode.querySelector('input[type="number"]').value;
+    for (let index = 1; index <= quantity; index++) {
+        listProduct.push(btnElm.dataset.id)
+    }
+
+    const updateCartRes = await requestWithToken({
+        url: `cart`,
+        clientId: userInfo.id,
+        token: localStorage.getItem("accessToken"),
+        method: "PATCH",
+        body: JSON.stringify(listProduct)
+    })
+
+    if(!updateCartRes.Error) {
+        document.location = "../Cart/cart.html"
+    }
+}
 
 // render products
 const renderProducts = async () => {
@@ -69,7 +160,7 @@ const renderProducts = async () => {
                     <div class="product_body">
                         <div class="user_actions">
                             <input type="number" min="1" step="1" value="1" />
-                            <button>Thêm vào giỏ</button>
+                            <button onclick="handleAddToCart(this)" data-id="${product._id}">Thêm vào giỏ</button>
                         </div>
                         <p class="product_name">${product.name}</p>
                         <p class="product_price">${formatPrice(product.price)}</p>
@@ -148,3 +239,5 @@ filterItemElms.forEach(filterItem => {
 document.onNextPage = onNextPage;
 document.onPrevious = onPrevious;
 document.onGoToPage = onGoToPage;
+document.handleChangeCate = handleChangeCate;
+document.handleAddToCart = handleAddToCart;

@@ -1,4 +1,9 @@
 import { request, requestWithToken } from "../../../utils/useRequestHelper.js";
+import { checkAuth } from "../../../utils/checkAuth.js";
+
+if(await checkAuth() !== "admin") {
+    document.location = "/"
+}
 
 const categoryNameInput = document.getElementById("categoryName")
 const urlParams = new URLSearchParams(window.location.search);
