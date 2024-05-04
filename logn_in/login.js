@@ -37,74 +37,55 @@ const checklogin = async () => {
         localStorage.setItem("accessToken", res.data.tokens.accessToken)
         window.location = "/"
     }
+}
+
+const checkRegister = async () => {
+    var username = document.getElementById('nameUser').value;
+    var phone = document.getElementById('phone').value;
+    var password = document.getElementById('matkhau').value;
+    var checkPassword = document.getElementById('kiemtramatkhau').value;
+    const loginMessage = document.getElementById('login-message-1');
+    if(!username.trim().length) {
+        loginMessage.innerHTML = "Username is empty !";
+    } else if(!phone.trim().length) {
+        loginMessage.innerHTML = "Phone is empty !";
+    } else if(!password.trim().length) {
+        loginMessage.innerHTML = "Password is empty !";
+    } else if(!checkPassword.trim().length) {
+        loginMessage.innerHTML = "Confirm password is empty !";
+    } else if (password.trim() !== checkPassword.trim()) {
+        loginMessage.innerHTML = "Password not matches!";
+    } else {
+        const body = {
+            fullName: username,
+            password,
+            confirmPassword: checkPassword,
+            phone
+        }
+    
+        const res = await request({
+            url: "auth/register",
+            method: "POST",
+            body: JSON.stringify(body)
+        })
+    
+        // Lỗi là vô đây (Lưu ý ghi đúng y Error -> E viết hoa)
+        if (res.Error) {
+            loginMessage.innerHTML = res.Error.message;
+        } else {
+            const userInfo = {
+                id: res.data.newUser._id,
+                name: res.data.newUser.fullName,
+                phoneNumber: res.data.newUser.phone,
+            }
+            localStorage.setItem("userInfo", JSON.stringify(userInfo))
+            localStorage.setItem("accessToken", res.data.tokens.accessToken)
+            window.location = "/"
+        }
+    }
 
 }
 
-window.checklogin = checklogin
-
-// function savelocalstoragelogin() {
-//     localStorage.setItem('login' ,JSON.stringify(login));
-// }
-
-// function LoadlocalStoragelogin() {
-//     var loginStr = localStorage.getItem('login');
-//     if (loginStr) {
-//         login = JSON.parse(loginStr);
-//     }
-// }
-// LoadlocalStoragelogin();
-
-// function savelogin() {
-//     var matkhaumoi = document.getElementById('matkhau').value;
-//     var kiemtramatkhau = document.getElementById('kiemtramatkhau').value;
-//     var email = document.getElementById('email').value;
-//     var tennguoidung = document.getElementById('nameuse').value;
-//     var loginMessagenew = document.getElementById('login-message-1');
-
-//     if (tennguoidung.trim() === '') {
-//         loginMessagenew.textContent = '⚠️Vui lòng nhập tên!';
-//         return;
-//     }
-
-//     if (email.trim() === '') {
-//         loginMessagenew.textContent = '⚠️Vui lòng nhập email!';
-//         return;
-//     }
-
-//     if (tennguoidung.trim() === '') {
-//         loginMessagenew.textContent = '⚠️Vui lòng nhập tên người dùng!';
-//         return;
-//     }
-
-//     if (matkhaumoi.trim() === '') {
-//         loginMessagenew.textContent = '⚠️Vui lòng nhập mật khẩu!';
-//         return;
-//     } else if (matkhaumoi.trim().length <= 5) {
-//         loginMessagenew.textContent = '⚠️Mật khẩu phải có ít nhất 6 ký tự!';
-//         return;
-//     }
-
-//     if (kiemtramatkhau ==='') {
-//         loginMessagenew.textContent = '⚠️Bạn chưa xác nhận lại mật khẩu!!!'
-//     }
-
-//     if (matkhaumoi !== kiemtramatkhau) {
-//         loginMessagenew.textContent = '⚠️Mật khẩu mới và xác nhận mật khẩu không khớp!';
-//         return;
-//     }
-
-//     var b = {
-//         email: email,
-//         tennguoidung: tennguoidung,
-//         matkhau: matkhaumoi,
-//     };
-
-//     login.push(b);
-//     savelocalstoragelogin();
-//     console.log(b);
-//     alert('Đăng ký thành công!');
-//     toggleForms(); // Hiển thị form đăng nhập sau khi đăng ký thành công
-// }
 
 
 // //chuyển từ trang đang nhập sang đăng kí
@@ -113,13 +94,17 @@ function toggleForms() {
     var registerContainer = document.getElementById('register-container');
 
     if (loginContainer.style.display === 'none') {
+        console.log("Vo day 1");
         loginContainer.style.display = 'block';
         registerContainer.style.display = 'none';
     } else {
+        console.log("Vo day 2");
         loginContainer.style.display = 'none';
         registerContainer.style.display = 'block';
     }
 }
 
 
+window.checklogin = checklogin
+window.checkRegister = checkRegister
 document.toggleForms = toggleForms

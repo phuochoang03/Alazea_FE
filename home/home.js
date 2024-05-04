@@ -78,12 +78,11 @@ const getCategories = async () => {
     divTag.classList.add("cate_item")
     divTag.onclick = () => ShowProducts(category.products)
     divTag.textContent = category.name
-    listProduct.push(...category.products)
+    listProduct.push(...category.products.splice(0, 2))
     listCate.appendChild(divTag)
   })
   handleShowAllProduct()
 }
-
 
 getCategories()
 document.handleShowAllProduct = handleShowAllProduct

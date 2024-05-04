@@ -51,65 +51,6 @@ const params = {
     category: ''
 };
 
-const handleChangeCate = async (cateSlug) => {
-    try {
-        params.category = cateSlug
-        const queryStr = new URLSearchParams(params);
-        const { data, pagination } = await request({
-            url: `products?${queryStr}`,
-        });
-
-        const productHtmlStr = data?.map(product => `
-            <li class="product">
-                <div class="product_container">
-                    <div class="image">
-                        <img src=${product.image}
-                            alt="" fill />
-                    </div>
-                    <div class="product_body">
-                        <div class="user_actions">
-                            <input type="number" min="1" step="1" value="1" />
-                            <button>Thêm vào giỏ</button>
-                        </div>
-                        <p class="product_name">${product.name}</p>
-                        <p class="product_price">${formatPrice(product.price)}</p>
-                    </div>
-                </div>
-            </li>
-        `).join('');
-
-        listProductsElm.innerHTML = productHtmlStr;
-
-        // pagination
-        const totalPage = Math.ceil(pagination.total / pagination.limit);
-        let paginationHtmlStr = '';
-        if (pagination.currPage > 1) {
-            paginationHtmlStr += `<li class="page-item" onclick="onPrevious();">
-            <a class="page-link">Previous</a>
-            </li>`;
-        };
-
-        for (let i = 1; i <= totalPage; i++) {
-            paginationHtmlStr += `
-            <li class="page-item ${i === pagination.currPage ? 'active' : ''}" onclick="onGoToPage(${i});">
-                <a class="page-link">${i}</a>
-            </li>
-            `;
-        };
-
-        if (pagination.currPage < totalPage) {
-            paginationHtmlStr += `
-            <li class="page-item" onclick="onNextPage();">
-                <a class="page-link">Next</a>
-            </li>
-            `;
-        };
-
-        paginationElm.innerHTML = paginationHtmlStr;
-    } catch (error) {
-        console.log('Error', error);
-    }
-}
 
 // render list category
 const renderListCategory = async () => {
@@ -138,6 +79,7 @@ const renderListCategory = async () => {
 renderListCategory();
 
 const handleAddToCart = async (btnElm) => {
+    console.log("Vo day");
     const userInfo = JSON.parse(localStorage.getItem('userInfo'))
 
     const userCartRes = await requestWithToken({
@@ -146,6 +88,8 @@ const handleAddToCart = async (btnElm) => {
         token: localStorage.getItem("accessToken"),
         method: "GET"
     })
+
+    console.log({userCartRes});
 
     const listProduct = userCartRes.data.products.map(product => product._id)
     const quantity = btnElm.parentNode.querySelector('input[type="number"]').value;
@@ -174,6 +118,8 @@ const renderProducts = async () => {
             url: `products?${queryStr}`,
         });
 
+        listProductsElm.innerHTML = ""
+
         const productHtmlStr = data?.map(product => `
             <li class="product">
                 <div class="product_container">
@@ -186,7 +132,9 @@ const renderProducts = async () => {
                             <input type="number" min="1" step="1" value="1" />
                             <button onclick="handleAddToCart(this)" data-id="${product._id}">Thêm vào giỏ</button>
                         </div>
-                        <p class="product_name">${product.name}</p>
+                        <a href="/detail/detail.html?id=${product._id}" style="text-decoration: none">
+                            <p class="product_name">${product.name}</p>
+                        </a>
                         <p class="product_price">${formatPrice(product.price)}</p>
                     </div>
                 </div>
@@ -225,7 +173,17 @@ const renderProducts = async () => {
         console.log('Error', error);
     }
 };
-renderProducts();
+
+const handleChangeCate = async (cateSlug) => {
+    try {
+        params.page = 1
+        params.category = cateSlug
+        renderProducts()
+    } catch (error) {
+        console.log('Error', error);
+    }
+}
+
 
 const onNextPage = () => {
     params.page = params.page += 1;
@@ -260,6 +218,8 @@ filterItemElms.forEach(filterItem => {
     };
 });
 
+
+renderProducts();
 document.onNextPage = onNextPage;
 document.onPrevious = onPrevious;
 document.onGoToPage = onGoToPage;

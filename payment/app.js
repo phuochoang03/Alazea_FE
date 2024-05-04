@@ -122,7 +122,7 @@ const handleCalculatePayment = () => {
         }
         totalPayment.innerHTML = formatPrice(summary.payment)
     } 
-    orderBody.totalPayment = formatPrice(summary.payment)
+    orderBody.totalPayment = summary.payment
     stepTotal.innerHTML = formatPrice(summary.payment)
 }
 
@@ -243,6 +243,10 @@ buttonPayment.addEventListener("click", async () => {
             token: localStorage.getItem("accessToken"),
             body: JSON.stringify(orderBody)
         })
+
+        if(!orderRes.Error) {
+            document.location = "/purchased_products/index.html"
+        }
     }
 })
 

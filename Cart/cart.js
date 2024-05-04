@@ -136,7 +136,12 @@ const handleDeleteProduct = async (productId) => {
   })
 
   const cartProduct = userCart.data.products
-  const newCartProducts = cartProduct.filter(prod => prod._id !== productId)
+  const newCartProducts = [] 
+  cartProduct.forEach(prod => {
+    if(prod._id !== productId) {
+      newCartProducts.push(prod._id)
+    } 
+  })
 
   const res = await requestWithToken({
     url: `cart`,
@@ -146,7 +151,6 @@ const handleDeleteProduct = async (productId) => {
     body: JSON.stringify(newCartProducts)
   })
 
-  console.log({res});
   handleGetCart()
 }
 

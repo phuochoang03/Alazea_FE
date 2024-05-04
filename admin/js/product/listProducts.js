@@ -8,6 +8,13 @@ if(await checkAuth() !== "admin") {
 const adminName = document.getElementById("admin_name")
 adminName.innerHTML = JSON.parse(localStorage.getItem("userInfo")).name
 
+const paginationElm = document.getElementById('pagination');
+
+const params = {
+    page: 1,
+    limit: 10,
+};
+
 const handleLogout = () => {
     localStorage.setItem("userInfo", JSON.stringify({}))
     localStorage.setItem("accessToken", "")
@@ -36,14 +43,13 @@ const deleteProduct = async (productId) => {
 
 const handleRenderProducts = async () => {
     const tbodyTag = document.getElementById("product_table")
-
+    tbodyTag.innerHTML = ""
     const res = await requestWithToken({
-        url: "products",
+        url: `products?page=${params.page}&limit=${params.limit}`,
         clientId: localStorage.getItem("user_id"),
         token: localStorage.getItem("accessToken"),
         method: "GET",
     })
-    console.log(res);
     if (res.data) {
         res.data.forEach((product, index) => {
             const trTag = document.createElement("tr")
@@ -68,9 +74,55 @@ const handleRenderProducts = async () => {
             tbodyTag.appendChild(trTag)
         })
     }
+
+    const pagination = res.pagination
+    const totalPage = Math.ceil(pagination.total / pagination.limit);
+    let paginationHtmlStr = '';
+    if (pagination.currPage > 1) {
+        paginationHtmlStr += `<li class="page-item" onclick="onPrevious();" style="list-style-type: none;">
+        <a class="page-link">Previous</a>
+        </li>`;
+    };
+
+    for (let i = 1; i <= totalPage; i++) {
+        paginationHtmlStr += `
+        <li class="page-item ${i === pagination.currPage ? 'active' : ''}" onclick="onGoToPage(${i});"  style="list-style-type: none;">
+            <a class="page-link">${i}</a>
+        </li>
+        `;
+    };
+
+    if (pagination.currPage < totalPage) {
+        paginationHtmlStr += `
+        <li class="page-item" onclick="onNextPage();"  style="list-style-type: none;">
+            <a class="page-link">Next</a>
+        </li>
+        `;
+        };
+
+    paginationElm.innerHTML = paginationHtmlStr;
 }
+
+const onNextPage = () => {
+    params.page = params.page += 1;
+    handleRenderProducts();
+};
+
+const onPrevious = () => {
+    params.page = params.page -= 1;
+    handleRenderProducts();
+};
+
+const onGoToPage = (page) => {
+    params.page = page;
+    handleRenderProducts();
+}
+
 
 handleRenderProducts()
 
+document.onNextPage = onNextPage;
+document.onPrevious = onPrevious;
+document.onGoToPage = onGoToPage;
 document.deleteProduct = deleteProduct
 document.handleLogout = handleLogout
