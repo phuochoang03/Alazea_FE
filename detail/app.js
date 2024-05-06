@@ -127,7 +127,7 @@ const handleAddToCart = async (productId) => {
         clientId: userInfo.id,
         token: localStorage.getItem("accessToken"),
         method: "PATCH",
-        body: JSON.stringify(newCartProducts)
+        body: JSON.stringify({newProducts: newCartProducts})
     })
 
     if (res.status === 200) {

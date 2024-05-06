@@ -96,7 +96,7 @@ const handleAddProduct = async (productId) => {
     clientId: userInfo.id,
     token: localStorage.getItem("accessToken"),
     method: "PATCH",
-    body: JSON.stringify(newCartProducts)
+    body: JSON.stringify({newProducts: newCartProducts})
   })
 
   console.log({res});
@@ -122,7 +122,7 @@ const handleRemoveProduct = async (productId) => {
     clientId: userInfo.id,
     token: localStorage.getItem("accessToken"),
     method: "PATCH",
-    body: JSON.stringify(newCartProducts)
+    body: JSON.stringify({newProducts: newCartProducts})
   })
   console.log({res});
   handleGetCart()
@@ -148,7 +148,7 @@ const handleDeleteProduct = async (productId) => {
     clientId: userInfo.id,
     token: localStorage.getItem("accessToken"),
     method: "PATCH",
-    body: JSON.stringify(newCartProducts)
+    body: JSON.stringify({newProducts: newCartProducts})
   })
 
   handleGetCart()

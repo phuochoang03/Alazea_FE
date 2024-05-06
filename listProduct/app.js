@@ -89,8 +89,6 @@ const handleAddToCart = async (btnElm) => {
         method: "GET"
     })
 
-    console.log({userCartRes});
-
     const listProduct = userCartRes.data.products.map(product => product._id)
     const quantity = btnElm.parentNode.querySelector('input[type="number"]').value;
     for (let index = 1; index <= quantity; index++) {
@@ -102,7 +100,7 @@ const handleAddToCart = async (btnElm) => {
         clientId: userInfo.id,
         token: localStorage.getItem("accessToken"),
         method: "PATCH",
-        body: JSON.stringify(listProduct)
+        body: JSON.stringify({newProducts: listProduct})
     })
 
     if (!updateCartRes.Error) {
