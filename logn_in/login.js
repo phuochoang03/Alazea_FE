@@ -46,7 +46,7 @@ const checkRegister = async () => {
     var checkPassword = document.getElementById('kiemtramatkhau').value;
     const loginMessage = document.getElementById('login-message-1');
     if(!username.trim().length) {
-        loginMessage.innerHTML = "Username is empty !";
+        loginMessage.innerHTML = "Username is empty!";
     } else if(!phone.trim().length) {
         loginMessage.innerHTML = "Phone is empty !";
     } else if(!password.trim().length) {
@@ -86,9 +86,7 @@ const checkRegister = async () => {
 
 }
 
-
-
-// //chuyển từ trang đang nhập sang đăng kí
+//chuyển từ trang đang nhập sang đăng kí
 function toggleForms() {
     var loginContainer = document.getElementById('login-container');
     var registerContainer = document.getElementById('register-container');
@@ -103,7 +101,6 @@ function toggleForms() {
         registerContainer.style.display = 'block';
     }
 }
-
 
 window.checklogin = checklogin
 window.checkRegister = checkRegister
